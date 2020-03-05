@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import BackgroundVideo from "./Assets/Videos/pinkandblue.mp4";
+import "./App.css";
+import NavBar from "./Components/navbar"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state={
+      currentPage:""
+    }
+  };
+
+  render() {
+    return (
+      <main>
+        <NavBar></NavBar>
+        {/* ----------Background Video---------- */}
+        <section className="backgroundVideo">
+          <div className="backgroundFilter"></div>
+          <video autoPlay muted loop className="backgroundVideo">
+            <source src={BackgroundVideo} type="video/mp4"></source>
+          </video>
+        </section>
+        {/* ----------End Background Video---------- */}
+      </main>
+    );
+  }
 }
-
-export default App;

@@ -1,38 +1,107 @@
-.App {
+/*---------Animations-----------*/
+@keyframes navBarSlide{
+  from{
+    padding: 0px;
+    width: 0px;
+  }
+  to{
+    padding: 5px;
+    width: 175px;
+  }
+}
+@keyframes navBarSlideBack{
+  from{
+    padding: 5px;
+    width: 175px;
+  }
+  to{
+    padding: 0px;
+    width: 0px;
+  }
+}
+/*---------End Animations-----------*/
+/*-------Background Video Stylings-------*/
+.backgroundVideo .backgroundFilter {
+  background-image: radial-gradient(circle, rgba(50, 50, 50), black);
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: fixed;
+}
+
+.backgroundVideo video {
+  position: fixed;
+  width: 100vw;
+  height: auto;
+  z-index: 0;
+  bottom: 0;
+  opacity: .5;
+  filter: contrast(50%) brightness(80%);
+}
+
+/*-------End Background Video Stylings-------*/
+
+/*-------Navigation Stylings-------*/
+nav{
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 5vw;
+}
+
+nav .navLinks{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav .navIcons{
+  display: inline-block;
+  font-size: 3.5rem;
+  opacity: 0.5;
+  color: white;
+  text-shadow: 3px 3px black;
+  width: 100px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+nav .navText{
+  text-shadow: 0px 5px 3px black;
+  color: lightgray;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
+  text-align: left;
+  overflow-x: hidden;
+  white-space: nowrap;
+  background-image: url("Assets/Images/asfalt-light.png"), linear-gradient(90deg, rgba(255, 0, 255, .5), transparent);
+  border-radius: 5px;
+  padding: 0;
+  display: inline-block;
+  width: 0px;
+  animation-name: navBarSlideBack;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav .navLinks:hover .navIcons{
+  color: magenta;
+  text-shadow: 0px 1.5px black;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+nav .navLinks:hover .navText{
+  animation-name: navBarSlide;
+  animation-duration: .5s;
+  animation-fill-mode: both;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*-------End Navigation Stylings-------*/
