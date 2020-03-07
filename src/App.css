@@ -84,24 +84,16 @@ nav .navText{
   padding: 0;
   display: inline-block;
   width: 0px;
-  animation-name: navBarSlideBack;
-  animation-duration: .5s;
-  animation-fill-mode: both;
-  
-
 }
 
-nav .navLinks:hover .navIcons{
+nav .navIcon .active{
+  text-shadow: 0px 0px black;
   color: magenta;
-  text-shadow: 0px 1.5px black;
-  cursor: pointer;
+  opacity: 1;
 }
 
-nav .navLinks:hover .navText{
-  animation-name: navBarSlide;
-  animation-duration: .5s;
-  animation-fill-mode: both;
-}
+
+
 
 
 /*-------End Navigation Stylings-------*/

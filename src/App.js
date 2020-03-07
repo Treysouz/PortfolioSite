@@ -7,14 +7,20 @@ export default class App extends Component {
   constructor() {
     super();
     this.state={
-      currentPage:""
+      currentPage: (window.location.href).substr((window.location.href).indexOf("#"))
     }
   };
+
+
+  componentDidMount(){
+    
+  }
+
 
   render() {
     return (
       <main>
-        <NavBar></NavBar>
+        <NavBar currentPage={this.state.currentPage}></NavBar>
         {/* ----------Background Video---------- */}
         <section className="backgroundVideo">
           <div className="backgroundFilter"></div>
