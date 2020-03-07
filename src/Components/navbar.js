@@ -1,189 +1,184 @@
 import React, { Component } from "react";
 import $ from "jquery";
 
+function slideHeaderOut(header) {
+  header.animate({
+    width: "175px",
+    padding: "5px"
+  });
+}
+
+function slideHeaderIn(header) {
+  header.animate({
+    width: "0px",
+    padding: "0px"
+  });
+}
+
 export default class NavBar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      mobileNav: false
+    };
+  }
   componentDidMount() {
+    this.isMobile();
+    window.addEventListener("resize", this.isMobile);
     this.updateHeader(this.props.currentPage);
+
     $(".navLinks").hover(function() {
       $(".navText").stop(true, true);
-      $(this)
-        .children(".navText")
-        .animate({
-          width: "175px",
-          padding: "5px"
-        });
+      slideHeaderOut($(this).children(".navText"));
     });
 
     $(".navLinks").mouseleave(function() {
       $(".navText").stop(true, true);
       if (!$(this).hasClass("active")) {
-        $(this)
-          .children(".navText")
-          .animate({
-            width: "0px",
-            padding: "0px"
-          });
+        slideHeaderIn($(this).children(".navText"));
       }
     });
+
+    $(window).keydown(function(e){
+      var keycode = e.keyCode ? e.keyCode : e.which;
+      var index= $(".active").index();
+      switch(keycode){
+        case 38:{
+          if(index>0){
+            index-=1;
+          }
+          break;
+        }
+        case 40:{
+          if (index<3){
+            index+=1;
+          }
+          break;
+        }
+        default:{
+          index=0;
+          break;
+        }
+      
+      }
+      $(".navLinks")[index].click();
+   
+    })
+  
+    
   }
 
-  componentDidUpdate() {
-    console.log(this.props.currentPage);
+  componentDidUpdate(){
+    this.updateHeader((window.location.href).substr((window.location.href).indexOf("#")));
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.isMobile);
+  }
+
+  isMobile = () => {
+    this.setState({
+      mobileNav: $(window).innerWidth() <= 600
+    });
+  };
 
   updateHeader = page => {
-    console.log("yep");
     $(".navText").stop(true, true);
-    switch (page) {
-      case "#welcome": {
-        $(".navLinks").each(function() {
-          if ($(this).attr("href") === "#welcome") {
-            $(this)
-              .addClass("active")
-              .children(".navText")
-              .animate({
-                width: "175px",
-                padding: "5px"
-              });
-          } else {
-            $(this)
-              .removeClass("active")
-              .children(".navText")
-              .animate({
-                width: "0px",
-                padding: "0px"
-              });
-          }
-        });
-        break;
+    $(".navLinks").each(function() {
+      if ($(this).attr("href") === page) {
+        slideHeaderOut(
+          $(this)
+            .addClass("active")
+            .children(".navText")
+        );
+        $(this).children(".navIcons").addClass("activeIcon");
+      } else {
+        slideHeaderIn(
+          $(this)
+            .removeClass("active")
+            .children(".navText")
+        );
+        $(this).children(".navIcons").removeClass("activeIcon");
       }
-      case "#about": {
-        $(".navLinks").each(function() {
-          if ($(this).attr("href") === "#about") {
-            $(this)
-              .addClass("active")
-              .children(".navText")
-              .animate({
-                width: "175px",
-                padding: "5px"
-              });
-          } else {
-            $(this)
-              .removeClass("active")
-              .children(".navText")
-              .animate({
-                width: "0px",
-                padding: "0px"
-              });
-          }
-        });
-        break;
-      }
-      case "#projects": {
-        $(".navLinks").each(function() {
-          if ($(this).attr("href") === "#projects") {
-            $(this)
-              .addClass("active")
-              .children(".navText")
-              .animate({
-                width: "175px",
-                padding: "5px"
-              });
-          } else {
-            $(this)
-              .removeClass("active")
-              .children(".navText")
-              .animate({
-                width: "0px",
-                padding: "0px"
-              });
-          }
-        });
-        break;
-      }
-      case "#contact": {
-        $(".navLinks").each(function() {
-          if ($(this).attr("href") === "#contact") {
-            $(this)
-              .addClass("active")
-              .children(".navText")
-              .animate({
-                width: "175px",
-                padding: "5px"
-              });
-          } else {
-            $(this)
-              .removeClass("active")
-              .children(".navText")
-              .animate({
-                width: "0px",
-                padding: "0px"
-              });
-          }
-        });
-        break;
-      }
-      default: {
-        $(".navLinks").each(function() {
-          if ($(this).attr("href") === "#welcome") {
-            $(this)
-              .addClass("active")
-              .children(".navText")
-              .animate({
-                width: "175px",
-                padding: "5px"
-              });
-          } else {
-            $(this)
-              .removeClass("active")
-              .children(".navText")
-              .animate({
-                width: "0px",
-                padding: "0px"
-              });
-          }
-        });
-        break;
-      }
-    }
+    });
+    
   };
 
   render() {
-    return (
-      <nav>
-        <a
-          href="#welcome"
-          className="navLinks"
-          onClick={() => this.updateHeader("#welcome")}
-        >
-          <i className="fas fa-door-open navIcons"></i>
-          <span className="navText">Welcome</span>
-        </a>
-        <a
-          href="#about"
-          className="navLinks"
-          onClick={() => this.updateHeader("#about")}
-        >
-          <i className="fas fa-user navIcons"></i>
-          <span className="navText">About Me</span>
-        </a>
-        <a
-          href="#projects"
-          className="navLinks"
-          onClick={() => this.updateHeader("#projects")}
-        >
-          <i className="fas fa-laptop-code navIcons"></i>
-          <span className="navText">Projects</span>
-        </a>
-        <a
-          href="#contact"
-          className="navLinks"
-          onClick={() => this.updateHeader("#contact")}
-        >
-          <i className="fas fa-envelope navIcons"></i>
-          <span className="navText">Contact Me</span>
-        </a>
-      </nav>
-    );
+    if (this.state.mobileNav) {
+      return (
+        <nav>
+          <a
+            href="#welcome"
+            className="navLinks"
+            onClick={() => this.updateHeader("#welcome")}
+          >
+            <i className="fas fa-door-open navIcons"></i>
+            <p className="mobileNavText">Welcome</p>
+          </a>
+          <a
+            href="#about"
+            className="navLinks"
+            onClick={() => this.updateHeader("#about")}
+          >
+            <i className="fas fa-user navIcons"></i>
+            <p className="mobileNavText">About Me</p>
+          </a>
+          <a
+            href="#projects"
+            className="navLinks"
+            onClick={() => this.updateHeader("#projects")}
+          >
+            <i className="fas fa-laptop-code navIcons"></i>
+            <p className="mobileNavText">Projects</p>
+          </a>
+          <a
+            href="#contact"
+            className="navLinks"
+            onClick={() => this.updateHeader("#contact")}
+          >
+            <i className="fas fa-envelope navIcons"></i>
+            <p className="mobileNavText">Contact Me</p>
+          </a>
+        </nav>
+      );
+    } else {
+      return (
+        <nav>
+          <a
+            href="#welcome"
+            className="navLinks"
+            onClick={() => this.updateHeader("#welcome")}
+          >
+            <i className="fas fa-door-open navIcons"></i>
+            <span className="navText">Welcome</span>
+          </a>
+          <a
+            href="#about"
+            className="navLinks"
+            onClick={() => this.updateHeader("#about")}
+          >
+            <i className="fas fa-user navIcons"></i>
+            <span className="navText">About Me</span>
+          </a>
+          <a
+            href="#projects"
+            className="navLinks"
+            onClick={() => this.updateHeader("#projects")}
+          >
+            <i className="fas fa-laptop-code navIcons"></i>
+            <span className="navText">Projects</span>
+          </a>
+          <a
+            href="#contact"
+            className="navLinks"
+            onClick={() => this.updateHeader("#contact")}
+          >
+            <i className="fas fa-envelope navIcons"></i>
+            <span className="navText">Contact Me</span>
+          </a>
+        </nav>
+      );
+    }
   }
 }

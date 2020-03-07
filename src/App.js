@@ -20,11 +20,13 @@ export default class App extends Component {
   render() {
     return (
       <main>
+        {/* ----------Navigation Bar---------- */}
         <NavBar currentPage={this.state.currentPage}></NavBar>
+        {/* ----------End Navigation Bar---------- */}
         {/* ----------Background Video---------- */}
         <section className="backgroundVideo">
           <div className="backgroundFilter"></div>
-          <video autoPlay muted loop className="backgroundVideo">
+          <video autoPlay muted loop>
             <source src={BackgroundVideo} type="video/mp4"></source>
           </video>
         </section>
