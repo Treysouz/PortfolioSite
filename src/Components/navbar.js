@@ -69,7 +69,7 @@ export default class NavBar extends Component {
   }
 
   componentDidUpdate(){
-    this.updateHeader((window.location.href).substr((window.location.href).indexOf("#")));
+    this.updateHeader(this.props.currentPage);
   }
 
   componentWillUnmount() {
@@ -83,7 +83,7 @@ export default class NavBar extends Component {
   };
 
   updateHeader = page => {
-    $(".navText").stop(true, true);
+    $(".navText").stop(true);
     $(".navLinks").each(function() {
       if ($(this).attr("href") === page) {
         slideHeaderOut(
@@ -92,7 +92,14 @@ export default class NavBar extends Component {
             .children(".navText")
         );
         $(this).children(".navIcons").addClass("activeIcon");
-      } else {
+      } else if(page === "/" || page ===""){
+        slideHeaderOut(
+          $($(".navLinks")[0])
+            .addClass("active")
+            .children(".navText")
+        );
+        $($(".navLinks")[0]).children(".navIcons").addClass("activeIcon");
+      }else {
         slideHeaderIn(
           $(this)
             .removeClass("active")
@@ -101,7 +108,7 @@ export default class NavBar extends Component {
         $(this).children(".navIcons").removeClass("activeIcon");
       }
     });
-    
+
   };
 
   render() {
@@ -111,7 +118,7 @@ export default class NavBar extends Component {
           <a
             href="#welcome"
             className="navLinks"
-            onClick={() => this.updateHeader("#welcome")}
+            onClick={() => {this.updateHeader("#welcome"); this.props.getNewPage("#welcome")}}
           >
             <i className="fas fa-door-open navIcons"></i>
             <p className="mobileNavText">Welcome</p>
@@ -119,7 +126,7 @@ export default class NavBar extends Component {
           <a
             href="#about"
             className="navLinks"
-            onClick={() => this.updateHeader("#about")}
+            onClick={() => {this.updateHeader("#about"); this.props.getNewPage("#about")}}
           >
             <i className="fas fa-user navIcons"></i>
             <p className="mobileNavText">About Me</p>
@@ -127,7 +134,7 @@ export default class NavBar extends Component {
           <a
             href="#projects"
             className="navLinks"
-            onClick={() => this.updateHeader("#projects")}
+            onClick={() => {this.updateHeader("#projects"); this.props.getNewPage("#projects")}}
           >
             <i className="fas fa-laptop-code navIcons"></i>
             <p className="mobileNavText">Projects</p>
@@ -135,7 +142,7 @@ export default class NavBar extends Component {
           <a
             href="#contact"
             className="navLinks"
-            onClick={() => this.updateHeader("#contact")}
+            onClick={() => {this.updateHeader("#contact"); this.props.getNewPage("#contact")}}
           >
             <i className="fas fa-envelope navIcons"></i>
             <p className="mobileNavText">Contact Me</p>
@@ -148,7 +155,7 @@ export default class NavBar extends Component {
           <a
             href="#welcome"
             className="navLinks"
-            onClick={() => this.updateHeader("#welcome")}
+            onClick={() => {this.updateHeader("#welcome"); this.props.getNewPage("#welcome")}}
           >
             <i className="fas fa-door-open navIcons"></i>
             <span className="navText">Welcome</span>
@@ -156,7 +163,7 @@ export default class NavBar extends Component {
           <a
             href="#about"
             className="navLinks"
-            onClick={() => this.updateHeader("#about")}
+            onClick={() => {this.updateHeader("#about"); this.props.getNewPage("#about")}}
           >
             <i className="fas fa-user navIcons"></i>
             <span className="navText">About Me</span>
@@ -164,7 +171,7 @@ export default class NavBar extends Component {
           <a
             href="#projects"
             className="navLinks"
-            onClick={() => this.updateHeader("#projects")}
+            onClick={() => {this.updateHeader("#projects"); this.props.getNewPage("#projects")}}
           >
             <i className="fas fa-laptop-code navIcons"></i>
             <span className="navText">Projects</span>
@@ -172,7 +179,7 @@ export default class NavBar extends Component {
           <a
             href="#contact"
             className="navLinks"
-            onClick={() => this.updateHeader("#contact")}
+            onClick={() => {this.updateHeader("#contact"); this.props.getNewPage("#contact")}}
           >
             <i className="fas fa-envelope navIcons"></i>
             <span className="navText">Contact Me</span>

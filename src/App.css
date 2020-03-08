@@ -1,11 +1,11 @@
 /*---------Animations-----------*/
 
 @keyframes navBarSlide {
-  from {
+  0% {
     padding: 0px;
     width: 0px;
   }
-  to {
+  100% {
     padding: 5px;
     width: 175px;
   }
@@ -19,6 +19,48 @@
   to {
     padding: 0px;
     width: 0px;
+  }
+}
+
+@keyframes slideInText {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpText {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeTextIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateEmoji {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  to {
+    opacity: .8;
+    transform: rotate(0deg);
   }
 }
 
@@ -66,7 +108,7 @@ nav .navLinks {
   align-items: center;
 }
 
-nav .navLinks:hover .navIcons{
+nav .navLinks:hover .navIcons {
   color: magenta;
   text-shadow: 0px 0px black;
 }
@@ -105,7 +147,7 @@ nav .mobileNavText {
   margin-top: 1vh;
 }
 
-nav .active .mobileNavText{
+nav .active .mobileNavText {
   text-shadow: 0px 0px 5px magenta;
 }
 
@@ -152,7 +194,8 @@ nav .activeIcon {
     align-items: center;
   }
 }
-@media(max-width: 400px){
+
+@media(max-width: 400px) {
   nav .navIcons {
     width: 50px;
   }
@@ -161,3 +204,156 @@ nav .activeIcon {
 /*--- End Media Queries */
 
 /*-------End Navigation Stylings-------*/
+
+/*-------Welcome Section Stylings-------*/
+
+.welcome .welcomeMessage {
+  text-align: center;
+  width: 75%;
+}
+
+.welcome .welcomeMessage .salutations {
+  margin-bottom: 3%;
+  font-size: 5rem;
+  /* background-image: url("Assets/Images/asfalt-light.png");
+  background-color: rgba(126, 190, 250, 0.514); */
+  width: auto;
+  display: inline-block;
+  padding: .5%;
+  border-radius: 30px;
+  animation: slideUpText;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.welcome .welcomeMessage h2 {
+  font-size: 2rem;
+}
+
+.welcome .welcomeMessage .myName {
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: auto;
+  overflow-x: hidden;
+}
+
+.welcome .welcomeMessage .myName span {
+  background-image: url("Assets/Images/asfalt-light.png");
+  background-color: rgba(255, 0, 255, .4);
+  border-radius: 10px;
+  animation: slideInText;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.welcome .welcomeMessage .myPos {
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: auto;
+  overflow-x: hidden;
+}
+
+.welcome .welcomeMessage .myPos span {
+  border-radius: 10px;
+  animation: slideInText;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  opacity: 0;
+  background-image: url("Assets/Images/asfalt-light.png");
+  background-color: rgba(255, 0, 120, .5);
+}
+
+.welcome .welcomeMessage .signOff {
+  opacity: 0;
+  animation: fadeTextIn;
+  animation-duration: 1s;
+  animation-delay: 3.5s;
+  animation-fill-mode: forwards;
+}
+
+.welcome .welcomeMessage .signOff i {
+  font-size: 3rem;
+  color: rgba(255, 0, 120, 1);
+  opacity: .5;
+  animation: rotateEmoji;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+/*--- Media Queries */
+
+@media (max-width: 1200px) {
+  .welcome{
+    width: 70vw;
+  }
+  .welcome .welcomeMessage .salutations {
+    font-size: 3.5rem;
+  }
+  .welcome .welcomeMessage h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .welcome{
+    width: 60vw;
+  }
+  .welcome .welcomeMessage .salutations {
+    font-size: 2rem;
+  }
+  .welcome .welcomeMessage h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome .welcomeMessage{
+    width: 100%;
+  }
+  .welcome{
+    width: 100vw;
+  }
+}
+
+
+/*--- End Media Queries */
+
+/* .welcome .bubblesContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.welcome .bubblesContainer .tinyBubbles {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: inset 0px 0px 3px 5px rgba(0, 0, 0, .3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .1;
+  position: absolute;
+}
+
+.welcome .bubblesContainer .tinyBubbles i {
+  font-size: 4rem;
+  color: white;
+} */
+
+/*-------End Welcome Section Stylings-------*/
