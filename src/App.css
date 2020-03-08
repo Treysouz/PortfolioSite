@@ -33,12 +33,16 @@
   }
 }
 
-@keyframes slideUpText {
-  from {
+@keyframes enlargeText {
+  0% {
     transform: scale(0);
     opacity: 0;
   }
-  to {
+  30% {
+    transform: scale(1.5);
+    opacity: .5;
+  }
+  100% {
     transform: scale(1);
     opacity: 1;
   }
@@ -168,7 +172,7 @@ nav .activeIcon {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   nav {
     margin-left: 0vw;
   }
@@ -221,7 +225,7 @@ nav .activeIcon {
   display: inline-block;
   padding: .5%;
   border-radius: 30px;
-  animation: slideUpText;
+  animation: enlargeText;
   animation-fill-mode: forwards;
   animation-duration: 1s;
   animation-delay: 1s;
@@ -296,7 +300,7 @@ nav .activeIcon {
 /*--- Media Queries */
 
 @media (max-width: 1200px) {
-  .welcome{
+  .welcome {
     width: 70vw;
   }
   .welcome .welcomeMessage .salutations {
@@ -308,7 +312,7 @@ nav .activeIcon {
 }
 
 @media (max-width: 800px) {
-  .welcome{
+  .welcome {
     width: 60vw;
   }
   .welcome .welcomeMessage .salutations {
@@ -320,14 +324,19 @@ nav .activeIcon {
 }
 
 @media (max-width: 600px) {
-  .welcome .welcomeMessage{
+  .welcome .welcomeMessage {
     width: 100%;
   }
-  .welcome{
+  .welcome {
     width: 100vw;
   }
+  .welcome .welcomeMessage .salutations {
+    font-size: 1.5rem;
+  }
+  .welcome .welcomeMessage h2 {
+    font-size: 1.3rem;
+  }
 }
-
 
 /*--- End Media Queries */
 
@@ -357,3 +366,310 @@ nav .activeIcon {
 } */
 
 /*-------End Welcome Section Stylings-------*/
+
+/*-------About Me Section Stylings-------*/
+
+.about {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 100vh;
+}
+
+.about .profilePicContainer {
+  display: inline-block;
+  width: 20%;
+  position: absolute;
+  z-index: 1;
+}
+
+.about .profilePicContainer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px ridge magenta;
+  opacity: 1;
+}
+
+.about .profilePicContainer .imageFilter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, .5), rgba(0, 0, 0, .3), rgba(0, 0, 0, .1));
+  box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer {
+  padding: 3%;
+}
+
+.about .bioContainer {
+  width: 50%;
+  height: 50%;
+}
+
+.about .bioContainer p {
+  font-size: 1.8rem;
+  text-align: left;
+  font-weight: 900;
+  display: inline-block;
+  width: 80%;
+}
+
+.about .otherInfoContainer {
+  width: 50%;
+  height: 50%;
+}
+
+.about .otherInfoContainer p {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 10%;
+}
+
+.about .skillsContainer {
+  width: 50%;
+  height: 50%;
+}
+
+.about .skillsContainer {
+  display: inline-block;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  border-bottom: 2px ridge magenta;
+}
+
+.about h2 .sectionHeaderOne {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 2.5rem;
+}
+
+.about h2 .sectionHeaderTwo {
+  vertical-align: bottom;
+  font-size: 2.5rem;
+}
+
+.about .colorDivider {
+  font-size: 5rem;
+  font-weight: 900;
+  color: magenta;
+  text-shadow: 2px 2px black;
+  vertical-align: middle;
+}
+
+.about .skillsContainer .skillsList {
+  margin-top: 10%;
+  font-size: 1.8rem;
+  display: inline-block;
+  width: 60%;
+  text-align: center;
+}
+
+.about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
+  font-size: 2rem;
+  color: lightskyblue;
+}
+
+.about .socialLinksContainer {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.about .socialLinksContainer .socialIconContainer{
+  color: lightgray;
+  text-align: center;
+}
+
+.about .socialLinksContainer .socialIconContainer i{
+  text-shadow: 0px 2px lightskyblue;
+  font-size: 5rem;
+}
+
+.about .socialLinksContainer .socialIconContainer i:hover{
+  text-shadow: 0px 0px black;
+  color: magenta;
+  cursor: pointer;
+}
+.about .socialLinksContainer p{
+  padding-top: 10%;
+  font-size: 1.8rem;
+}
+@media(min-height: 1200px){
+  .about .profilePicContainer{
+    position: relative;
+    width: 35%;
+  }
+  .about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer{
+    width: 100%;
+    height: auto;
+    padding: 0 2%;
+  }
+}
+@media (max-width: 1600px) {
+  .about {
+    width: 75vw;
+  }
+  .about .skillsContainer h2 {
+    margin-top: 15%;
+  }
+  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo {
+    font-size: 1.5rem;
+  }
+  .about h2 .colorDivider {
+    font-size: 3rem;
+  }
+  .about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
+    font-size: 1.7rem;
+  }
+  .about .skillsContainer .skillsList, .about .otherInfoContainer .skillsList {
+    font-size: 1.3rem;
+    margin-top: 5%;
+  }
+  .about .bioContainer p {
+    font-size: 1.3rem;
+  }
+
+  .about .socialLinksContainer .socialIconContainer i{
+    font-size: 4rem;
+  }
+  .about .socialLinksContainer p{
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about {
+    width: 70vw;
+  }
+  .about .bioContainer p {
+    width: 100%;
+  }
+  .about .skillsContainer .skillsList {
+    width: 90%;
+  }
+  .about .socialLinksContainer .socialIconContainer i{
+    font-size: 3rem;
+  }
+  .about .socialLinksContainer p{
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .about {
+    width: 70vw;
+    
+  }
+  .about .profilePicContainer{
+    position: relative;
+    width: 35%;
+  }
+  .about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer{
+    height: auto;
+  }
+  .about .skillsContainer h2, .about .otherInfoContainer h2 {
+    margin-top: 0%;
+    line-height: 1.5rem;
+  }
+  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo {
+    font-size: 1.5rem;
+    vertical-align: middle;
+  }
+  .about h2 .colorDivider {
+    font-size: 1.5rem;
+  }
+  .about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
+    font-size: 1.5rem;
+  }
+  .about .skillsContainer .skillsList, .about .otherInfoContainer .skillsList {
+    font-size: 1rem;
+    margin-top: 5%;
+  }
+  .about .bioContainer p {
+    font-size: 1rem;
+  }
+  .about .socialLinksContainer {
+    width: 100%;
+  }
+  .about .socialLinksContainer p{
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .about .bioContainer{
+    width: 60%;
+  }
+  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo, .about h2 .colorDivider {
+    font-size: 1rem;
+  }
+  .about .socialLinksContainer .socialIconContainer i{
+    font-size: 2rem;
+  }
+  .about .socialLinksContainer p{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:600px) {
+  .about {
+    width: 100vw;
+    height: 80vh;
+  }
+  .about .profilePicContainer {
+    position: relative;
+    width: 30%;
+  }
+
+  .about .bioContainer p{
+    font-size: .85rem;
+    text-shadow: 0px 1px black;
+  }
+
+  .about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer{
+    width: 100%;
+    height: auto;
+    padding: 0 2%;
+  }
+  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo {
+    font-size: 1rem;
+  }
+  .about h2 .colorDivider {
+    font-size: 1rem;
+  }
+  .about .skillsContainer h2{
+    margin-top: 0;
+  }
+  .about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
+    font-size: 1rem;
+  }
+  .about .skillsContainer .skillsList, .about .otherInfoContainer .skillsList{
+    margin-top: 1%;
+  }
+  .about .socialLinksContainer{
+    margin-top: 5%;
+  }
+  .about .socialLinksContainer .socialIconContainer i{
+    font-size: 1.7rem;
+  }
+  .about .socialLinksContainer p{
+    font-size: 1rem;
+  }
+}
+
+/*-------End About Me Section Stylings-------*/

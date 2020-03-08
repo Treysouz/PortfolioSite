@@ -39,36 +39,31 @@ export default class NavBar extends Component {
       }
     });
 
-    $(window).keydown(function(e){
+    $(window).keydown(function(e) {
       var keycode = e.keyCode ? e.keyCode : e.which;
-      var index= $(".active").index();
-      switch(keycode){
-        case 38:{
-          if(index>0){
-            index-=1;
+      var index = $(".active").index();
+      switch (keycode) {
+        case 38: {
+          if (index > 0) {
+            index -= 1;
           }
           break;
         }
-        case 40:{
-          if (index<3){
-            index+=1;
+        case 40: {
+          if (index < 3) {
+            index += 1;
           }
           break;
         }
-        default:{
-          index=0;
+        default: {
           break;
         }
-      
       }
       $(".navLinks")[index].click();
-   
-    })
-  
-    
+    });
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.updateHeader(this.props.currentPage);
   }
 
@@ -91,24 +86,29 @@ export default class NavBar extends Component {
             .addClass("active")
             .children(".navText")
         );
-        $(this).children(".navIcons").addClass("activeIcon");
-      } else if(page === "/" || page ===""){
+        $(this)
+          .children(".navIcons")
+          .addClass("activeIcon");
+      } else if (page === "/" || page === "") {
         slideHeaderOut(
           $($(".navLinks")[0])
             .addClass("active")
             .children(".navText")
         );
-        $($(".navLinks")[0]).children(".navIcons").addClass("activeIcon");
-      }else {
+        $($(".navLinks")[0])
+          .children(".navIcons")
+          .addClass("activeIcon");
+      } else {
         slideHeaderIn(
           $(this)
             .removeClass("active")
             .children(".navText")
         );
-        $(this).children(".navIcons").removeClass("activeIcon");
+        $(this)
+          .children(".navIcons")
+          .removeClass("activeIcon");
       }
     });
-
   };
 
   render() {
@@ -118,7 +118,10 @@ export default class NavBar extends Component {
           <a
             href="#welcome"
             className="navLinks"
-            onClick={() => {this.updateHeader("#welcome"); this.props.getNewPage("#welcome")}}
+            onClick={() => {
+              this.updateHeader("#welcome");
+              this.props.getNewPage("#welcome");
+            }}
           >
             <i className="fas fa-door-open navIcons"></i>
             <p className="mobileNavText">Welcome</p>
@@ -126,7 +129,10 @@ export default class NavBar extends Component {
           <a
             href="#about"
             className="navLinks"
-            onClick={() => {this.updateHeader("#about"); this.props.getNewPage("#about")}}
+            onClick={() => {
+              this.updateHeader("#about");
+              this.props.getNewPage("#about");
+            }}
           >
             <i className="fas fa-user navIcons"></i>
             <p className="mobileNavText">About Me</p>
@@ -134,7 +140,10 @@ export default class NavBar extends Component {
           <a
             href="#projects"
             className="navLinks"
-            onClick={() => {this.updateHeader("#projects"); this.props.getNewPage("#projects")}}
+            onClick={() => {
+              this.updateHeader("#projects");
+              this.props.getNewPage("#projects");
+            }}
           >
             <i className="fas fa-laptop-code navIcons"></i>
             <p className="mobileNavText">Projects</p>
@@ -142,7 +151,10 @@ export default class NavBar extends Component {
           <a
             href="#contact"
             className="navLinks"
-            onClick={() => {this.updateHeader("#contact"); this.props.getNewPage("#contact")}}
+            onClick={() => {
+              this.updateHeader("#contact");
+              this.props.getNewPage("#contact");
+            }}
           >
             <i className="fas fa-envelope navIcons"></i>
             <p className="mobileNavText">Contact Me</p>
@@ -155,7 +167,10 @@ export default class NavBar extends Component {
           <a
             href="#welcome"
             className="navLinks"
-            onClick={() => {this.updateHeader("#welcome"); this.props.getNewPage("#welcome")}}
+            onClick={() => {
+              this.updateHeader("#welcome");
+              this.props.getNewPage("#welcome");
+            }}
           >
             <i className="fas fa-door-open navIcons"></i>
             <span className="navText">Welcome</span>
@@ -163,7 +178,10 @@ export default class NavBar extends Component {
           <a
             href="#about"
             className="navLinks"
-            onClick={() => {this.updateHeader("#about"); this.props.getNewPage("#about")}}
+            onClick={() => {
+              this.updateHeader("#about");
+              this.props.getNewPage("#about");
+            }}
           >
             <i className="fas fa-user navIcons"></i>
             <span className="navText">About Me</span>
@@ -171,7 +189,10 @@ export default class NavBar extends Component {
           <a
             href="#projects"
             className="navLinks"
-            onClick={() => {this.updateHeader("#projects"); this.props.getNewPage("#projects")}}
+            onClick={() => {
+              this.updateHeader("#projects");
+              this.props.getNewPage("#projects");
+            }}
           >
             <i className="fas fa-laptop-code navIcons"></i>
             <span className="navText">Projects</span>
@@ -179,7 +200,10 @@ export default class NavBar extends Component {
           <a
             href="#contact"
             className="navLinks"
-            onClick={() => {this.updateHeader("#contact"); this.props.getNewPage("#contact")}}
+            onClick={() => {
+              this.updateHeader("#contact");
+              this.props.getNewPage("#contact");
+            }}
           >
             <i className="fas fa-envelope navIcons"></i>
             <span className="navText">Contact Me</span>

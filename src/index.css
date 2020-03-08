@@ -51,7 +51,8 @@ section {
     align-items: flex-start;
     animation: fadeIn;
     animation-fill-mode: forwards;
-    animation-duration: 2s;
+    animation-duration: 1s;
+    overflow: hidden;
 }
 
 @media(max-width:600px){
