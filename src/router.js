@@ -15,7 +15,7 @@ export default class Router extends Component {
             }
             case "#about":{
                 return(
-                    <About></About>
+                    <About isMobile={this.props.isMobile} mobileView={this.props.mobileView}></About>
                 )
             }
             case "#projects":{

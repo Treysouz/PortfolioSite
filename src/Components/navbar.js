@@ -16,15 +16,9 @@ function slideHeaderIn(header) {
 }
 
 export default class NavBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      mobileNav: false
-    };
-  }
+ 
   componentDidMount() {
-    this.isMobile();
-    window.addEventListener("resize", this.isMobile);
+
     this.updateHeader(this.props.currentPage);
 
     $(".navLinks").hover(function() {
@@ -67,15 +61,9 @@ export default class NavBar extends Component {
     this.updateHeader(this.props.currentPage);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.isMobile);
-  }
+ 
 
-  isMobile = () => {
-    this.setState({
-      mobileNav: $(window).innerWidth() <= 600
-    });
-  };
+ 
 
   updateHeader = page => {
     $(".navText").stop(true);
@@ -112,7 +100,7 @@ export default class NavBar extends Component {
   };
 
   render() {
-    if (this.state.mobileNav) {
+    if (this.props.mobileView) {
       return (
         <nav>
           <a
@@ -124,7 +112,7 @@ export default class NavBar extends Component {
             }}
           >
             <i className="fas fa-door-open navIcons"></i>
-            <p className="mobileNavText">Welcome</p>
+            <p className="mobileViewText">Welcome</p>
           </a>
           <a
             href="#about"
@@ -135,7 +123,7 @@ export default class NavBar extends Component {
             }}
           >
             <i className="fas fa-user navIcons"></i>
-            <p className="mobileNavText">About Me</p>
+            <p className="mobileViewText">About Me</p>
           </a>
           <a
             href="#projects"
@@ -146,7 +134,7 @@ export default class NavBar extends Component {
             }}
           >
             <i className="fas fa-laptop-code navIcons"></i>
-            <p className="mobileNavText">Projects</p>
+            <p className="mobileViewText">Projects</p>
           </a>
           <a
             href="#contact"
@@ -157,7 +145,7 @@ export default class NavBar extends Component {
             }}
           >
             <i className="fas fa-envelope navIcons"></i>
-            <p className="mobileNavText">Contact Me</p>
+            <p className="mobileViewText">Contact Me</p>
           </a>
         </nav>
       );

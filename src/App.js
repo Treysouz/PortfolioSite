@@ -1,27 +1,49 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import BackgroundVideo from "./Assets/Videos/pinkandblue.mp4";
 import "./App.css";
-import NavBar from "./Components/navbar"
+import NavBar from "./Components/navbar";
 import Router from "./router";
+import $ from "jquery";
 
 export default class App extends Component {
   constructor() {
     super();
-    this.state={
-      currentPage: (window.location.href).substr((window.location.href).indexOf("#"))
-    }
-  };
-  getNewPage = (page) =>{
+    this.state = {
+      currentPage: window.location.href.substr(
+        window.location.href.indexOf("#")
+      ),
+      mobileView: false
+    };
+  }
+  getNewPage = page => {
     this.setState({
-      currentPage:page
-    })
+      currentPage: page
+    });
+  };
+  isMobile = () => {
+    this.setState({
+      mobileView: $(window).innerWidth() <= 600
+    });
+    
+  };
+
+  componentDidMount(){
+    window.addEventListener("resize", this.isMobile);
+    this.isMobile();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.isMobile);
   }
 
   render() {
     return (
       <main>
         {/* ----------Navigation Bar---------- */}
-        <NavBar currentPage={this.state.currentPage} getNewPage={this.getNewPage}></NavBar>
+        <NavBar
+          currentPage={this.state.currentPage}
+          getNewPage={this.getNewPage} mobileView={this.state.mobileView}
+        ></NavBar>
         {/* ----------End Navigation Bar---------- */}
         {/* ----------Background Video---------- */}
         <div className="backgroundVideo">
@@ -31,9 +53,9 @@ export default class App extends Component {
           </video>
         </div>
         {/* ----------End Background Video---------- */}
-         {/* ----------Main Content --------- */}
-         <Router currentPage={this.state.currentPage}></Router>
-          {/* ----------End Main Content --------- */}
+        {/* ----------Main Content --------- */}
+        <Router currentPage={this.state.currentPage} isMobile={this.isMobile} mobileView={this.state.mobileView}></Router>
+        {/* ----------End Main Content --------- */}
       </main>
     );
   }

@@ -33,11 +33,11 @@ export default class Welcome extends Component {
         <div className="welcomeMessage">
           <h1 className="salutations">{this.state.salutations}</h1>
           <h2>
-            My name is
+            My name is&nbsp;
             <span className="myName">
               <span>&nbsp;Tremayne Souza&nbsp;</span>
             </span>
-            <br></br> <br></br>I'm a&nbsp;
+            <br></br> <br></br>I'm a NYC-Based&nbsp;
             <span className="myPos">
               <span>&nbsp;Full-Stack Web Developer&nbsp;</span>
             </span>

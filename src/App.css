@@ -68,6 +68,44 @@
   }
 }
 
+.textHighlightContainer {
+  width: auto;
+  overflow-x: hidden;
+  display: inline-block;
+}
+
+.textHighlightOne {
+  background-image: url("Assets/Images/asfalt-light.png");
+  background-color: rgba(255, 0, 255, .4);
+  border-radius: 10px;
+  animation: slideInText;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  opacity: 0;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.textHighlightTwo {
+  background-image: url("Assets/Images/asfalt-light.png");
+  background-color: rgba(255, 0, 120, .5);
+  border-radius: 10px;
+  animation: slideInText;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  opacity: 0;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
 /*---------End Animations-----------*/
 
 /*-------Background Video Stylings-------*/
@@ -143,7 +181,7 @@ nav .navText {
   width: 0px;
 }
 
-nav .mobileNavText {
+nav .mobileViewText {
   color: lightgray;
   width: auto;
   text-shadow: 0px 5px 3px black;
@@ -151,7 +189,7 @@ nav .mobileNavText {
   margin-top: 1vh;
 }
 
-nav .active .mobileNavText {
+nav .active .mobileViewText {
   text-shadow: 0px 0px 5px magenta;
 }
 
@@ -187,9 +225,12 @@ nav .activeIcon {
 @media (max-width: 600px) {
   nav {
     flex-direction: row;
-    height: 10vh;
+    height: 11vh;
     width: 100vw;
     bottom: 0;
+    background-color: rgba(0, 0, 0, .3);
+    padding-top: 1vh;
+    border-radius: 50px;
   }
   nav .navLinks {
     display: flex;
@@ -205,9 +246,22 @@ nav .activeIcon {
   }
 }
 
+@media(max-width: 350px) {
+  nav .navIcons {
+    font-size: 1.5rem;
+  }
+  nav .mobileViewText {
+    font-size: .8rem;
+  }
+}
+
 /*--- End Media Queries */
 
 /*-------End Navigation Stylings-------*/
+
+/*------Misc. Stylings -------*/
+
+/*------End Misc. Stylings -------*/
 
 /*-------Welcome Section Stylings-------*/
 
@@ -371,19 +425,67 @@ nav .activeIcon {
 
 .about {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 80vw;
+  width: 75vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+.about h2 {
+  font-size: 2rem;
+  border-bottom: 3px ridge magenta;
+  margin-bottom: 5%;
+}
+
+.about p {
+  font-size: 1.5rem;
+}
+
+.about .sectionHeaderOne {
+  vertical-align: top;
+}
+
+.about .sectionHeaderTwo {
+  vertical-align: bottom;
+}
+
+.about .colorDivider {
+  color: magenta;
+}
+
+.about h2 .colorDivider {
+  font-size: 3rem;
+  color: magenta;
+  text-shadow: 2px 2px black;
+}
+
+.about .skillsList .colorDivider {
+  color: lightskyblue;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px black;
+}
+
+.about .skillsList {
+  font-size: 1.5rem;
+  text-shadow: 0 3px black;
+  text-align: left;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about .bioContainer, .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
+  width: 50%;
+  height: auto;
+  padding: 2% 3%;
 }
 
 .about .profilePicContainer {
-  display: inline-block;
-  width: 20%;
-  position: absolute;
-  z-index: 1;
+  position: relative;
+  width: 40%;
+  margin: 1% 5% 5%;
 }
 
 .about .profilePicContainer img {
@@ -391,164 +493,93 @@ nav .activeIcon {
   height: 100%;
   border-radius: 50%;
   border: 2px ridge magenta;
-  opacity: 1;
 }
 
 .about .profilePicContainer .imageFilter {
-  position: absolute;
   width: 100%;
   height: 100%;
+  position: absolute;
+  filter: brightness(80%);
   background-image: linear-gradient(120deg, rgba(255, 255, 255, .5), rgba(0, 0, 0, .3), rgba(0, 0, 0, .1));
   box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, .5);
   border-radius: 50%;
   z-index: 1;
 }
 
-.about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer {
-  padding: 3%;
-}
-
 .about .bioContainer {
-  width: 50%;
-  height: 50%;
+  padding-top: 5%;
 }
 
-.about .bioContainer p {
+.about .bioContainer h3 {
+  color: whitesmoke;
   font-size: 1.8rem;
   text-align: left;
-  font-weight: 900;
-  display: inline-block;
-  width: 80%;
+  text-transform: uppercase;
+  padding-top: 2%;
+  white-space: nowrap;
 }
 
-.about .otherInfoContainer {
-  width: 50%;
-  height: 50%;
-}
-
-.about .otherInfoContainer p {
-  display: inline-block;
-  text-align: center;
-  font-size: 1.8rem;
-  margin-top: 10%;
-}
-
-.about .skillsContainer {
-  width: 50%;
-  height: 50%;
-}
-
-.about .skillsContainer {
-  display: inline-block;
-}
-
-.about h2 {
-  font-size: 2.5rem;
-  border-bottom: 2px ridge magenta;
-}
-
-.about h2 .sectionHeaderOne {
-  vertical-align: top;
-  display: inline-block;
-  font-size: 2.5rem;
-}
-
-.about h2 .sectionHeaderTwo {
-  vertical-align: bottom;
-  font-size: 2.5rem;
-}
-
-.about .colorDivider {
-  font-size: 5rem;
-  font-weight: 900;
-  color: magenta;
-  text-shadow: 2px 2px black;
-  vertical-align: middle;
-}
-
-.about .skillsContainer .skillsList {
-  margin-top: 10%;
-  font-size: 1.8rem;
-  display: inline-block;
-  width: 60%;
-  text-align: center;
-}
-
-.about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
-  font-size: 2rem;
-  color: lightskyblue;
+.about .bioContainer .introContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap-reverse;
 }
 
 .about .socialLinksContainer {
-  width: 50%;
-  height: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   flex-wrap: wrap;
-
-}
-
-.about .socialLinksContainer .socialIconContainer{
-  color: lightgray;
   text-align: center;
+  justify-content: space-around;
 }
 
-.about .socialLinksContainer .socialIconContainer i{
-  text-shadow: 0px 2px lightskyblue;
-  font-size: 5rem;
+.about .socialLinksContainer .socialIconContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10%;
+  width: auto;
+  height: auto;
 }
 
-.about .socialLinksContainer .socialIconContainer i:hover{
-  text-shadow: 0px 0px black;
+.about .socialLinksContainer .socialIconContainer i {
+  font-size: 4rem;
+  color: whitesmoke;
+  text-shadow: 0px 1px magenta;
+  margin-bottom: 5%;
+}
+
+.about .socialLinksContainer .socialIconContainer i:hover {
   color: magenta;
+  text-shadow: 0px 0px;
   cursor: pointer;
 }
-.about .socialLinksContainer p{
-  padding-top: 10%;
-  font-size: 1.8rem;
+
+.about .socialLinksContainer .socialIconContainer p {
+  text-shadow: 0px 1px lightskyblue;
 }
-@media(min-height: 1200px){
-  .about .profilePicContainer{
-    position: relative;
-    width: 35%;
-  }
-  .about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer{
-    width: 100%;
-    height: auto;
-    padding: 0 2%;
-  }
-}
+
+/*-----Media Queries -----*/
+
 @media (max-width: 1600px) {
-  .about {
-    width: 75vw;
+  .about h2 {
+    font-size: 1.4rem;
   }
-  .about .skillsContainer h2 {
-    margin-top: 15%;
+  .about p {
+    font-size: 1.3rem;
   }
-  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo {
-    font-size: 1.5rem;
+  .about .skillsList {
+    font-size: 1.3rem;
   }
   .about h2 .colorDivider {
     font-size: 3rem;
+    color: magenta;
   }
-  .about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
-    font-size: 1.7rem;
-  }
-  .about .skillsContainer .skillsList, .about .otherInfoContainer .skillsList {
-    font-size: 1.3rem;
-    margin-top: 5%;
-  }
-  .about .bioContainer p {
+  .about .bioContainer h3 {
     font-size: 1.3rem;
   }
-
-  .about .socialLinksContainer .socialIconContainer i{
-    font-size: 4rem;
-  }
-  .about .socialLinksContainer p{
-    font-size: 1.6rem;
+  .about .skillsList .colorDivider {
+    font-size: 2rem;
   }
 }
 
@@ -556,120 +587,163 @@ nav .activeIcon {
   .about {
     width: 70vw;
   }
-  .about .bioContainer p {
-    width: 100%;
-  }
-  .about .skillsContainer .skillsList {
-    width: 90%;
-  }
-  .about .socialLinksContainer .socialIconContainer i{
-    font-size: 3rem;
-  }
-  .about .socialLinksContainer p{
-    font-size: 1.3rem;
+  .about .socialLinksContainer .socialIconContainer i {
+    font-size: 2.5rem;
   }
 }
 
-@media (max-width: 1000px) {
-  .about {
-    width: 70vw;
-    
+@media (max-width: 1000px), (max-height: 650px) {
+  .about h2 {
+    font-size: 1.2rem;
   }
-  .about .profilePicContainer{
-    position: relative;
-    width: 35%;
+  .about p {
+    font-size: 1rem;
   }
-  .about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer{
-    height: auto;
+  .about .skillsList {
+    font-size: 1rem;
   }
-  .about .skillsContainer h2, .about .otherInfoContainer h2 {
-    margin-top: 0%;
-    line-height: 1.5rem;
-  }
-  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo {
-    font-size: 1.5rem;
-    vertical-align: middle;
+  .about .socialLinksContainer .socialIconContainer i {
+    font-size: 2rem;
   }
   .about h2 .colorDivider {
     font-size: 1.5rem;
   }
-  .about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
-    font-size: 1.5rem;
+  .about .skillsList .colorDivider {
+    font-size: 1.2rem;
   }
-  .about .skillsContainer .skillsList, .about .otherInfoContainer .skillsList {
-    font-size: 1rem;
-    margin-top: 5%;
-  }
-  .about .bioContainer p {
+  .about .bioContainer h3 {
     font-size: 1rem;
   }
-  .about .socialLinksContainer {
-    width: 100%;
+}
+
+@media (max-width: 800px) {
+  .about {
+    width: 65vw;
+    justify-content: center;
   }
-  .about .socialLinksContainer p{
+  .about .profilePicContainer {
+    width: 50%;
+  }
+  .about h2 {
+    text-align: center;
+  }
+  .about h2 .colorDivider {
     font-size: 1.3rem;
   }
-}
-
-@media (max-width: 850px) {
-  .about .bioContainer{
-    width: 60%;
+  .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
+    padding: 0;
   }
-  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo, .about h2 .colorDivider {
-    font-size: 1rem;
+  .about .bioContainer {
+    padding: 2% 0 0;
   }
-  .about .socialLinksContainer .socialIconContainer i{
-    font-size: 2rem;
-  }
-  .about .socialLinksContainer p{
-    font-size: 1rem;
+  .about .sectionHeaderOne, .about .sectionHeaderTWo {
+    vertical-align: middle
   }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .about {
     width: 100vw;
     height: 80vh;
-  }
-  .about .profilePicContainer {
-    position: relative;
-    width: 30%;
-  }
-
-  .about .bioContainer p{
-    font-size: .85rem;
-    text-shadow: 0px 1px black;
-  }
-
-  .about .bioContainer, .about .otherInfoContainer, .about .skillsContainer, .about .socialLinksContainer{
-    width: 100%;
-    height: auto;
     padding: 0 2%;
+    flex-direction: row;
+    text-align: center;
+    overflow: scroll;
   }
-  .about h2 .sectionHeaderOne, .about h2 .sectionHeaderTwo {
+  .about .bioContainer, .about .skillsContainer, .about .miscInfoContainer {
+    width: 100%;
+    padding: 2% 0 0;
+  }
+  .about .socialLinksContainer, .about .profilePicContainer {
+    width: 40%;
+    margin: 0;
+    margin-top: 0;
+  }
+  .about .socialLinksContainer {
+    width: 60%;
+    margin-top: 7vh;
+  }
+ 
+  .about .socialLinksContainer .socialIconContainer {
+    width: 50%;
+    padding-bottom: 5%;
+  }
+  .about .socialLinksContainer .socialIconContainer i {
+    font-size: 1.5rem;
+  }
+  .about h2 {
     font-size: 1rem;
+    margin-bottom: 1%;
+  }
+  .about p {
+    font-size: .8rem;
+  }
+  .about .skillsList {
+    font-size: .8rem;
+    text-align: center;
   }
   .about h2 .colorDivider {
     font-size: 1rem;
   }
-  .about .skillsContainer h2{
-    margin-top: 0;
-  }
-  .about .skillsContainer .skillsList .colorDivider, .about .otherInfoContainer .skillsList .colorDivider {
+  .about .skillsList .colorDivider {
     font-size: 1rem;
   }
-  .about .skillsContainer .skillsList, .about .otherInfoContainer .skillsList{
-    margin-top: 1%;
+  .about .bioContainer h3 {
+    font-size: .75rem;
   }
-  .about .socialLinksContainer{
-    margin-top: 5%;
+  .about .profilePicContainer {
+    float: left;
   }
-  .about .socialLinksContainer .socialIconContainer i{
-    font-size: 1.7rem;
+  .about .bioContainer h3 {
+    white-space: normal;
+    text-align: center;
+    width: 100%;
   }
-  .about .socialLinksContainer p{
-    font-size: 1rem;
+  .about .bioContainer .introContainer {
+    flex-wrap: wrap;
   }
 }
+
+@media (max-height:480px) {
+  .about {
+    display: none;
+  }
+}
+
+@media (min-height:1000px) {
+  .about {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about .bioContainer, .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
+    width: 100%;
+  }
+  .about h2 {
+    font-size: 2rem;
+  }
+  .about p {
+    font-size: 1.3rem;
+  }
+  .about .skillsList {
+    font-size: 1.3rem;
+  }
+  .about .socialLinksContainer .socialIconContainer i {
+    font-size: 4rem;
+  }
+  .about h2 .colorDivider {
+    font-size: 3rem;
+    color: magenta;
+  }
+  .about .skillsList .colorDivider {
+    font-size: 2rem;
+  }
+  .about .socialLinksContainer .socialIconContainer {
+    width: auto;
+    margin-top: 10%;
+  }
+}
+
+/*-----End Media Queries -----*/
 
 /*-------End About Me Section Stylings-------*/
