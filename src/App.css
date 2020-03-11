@@ -228,7 +228,6 @@ nav .activeIcon {
     height: 11vh;
     width: 100vw;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .3);
     padding-top: 1vh;
     border-radius: 50px;
   }
@@ -747,3 +746,67 @@ nav .activeIcon {
 /*-----End Media Queries -----*/
 
 /*-------End About Me Section Stylings-------*/
+
+/*-------Projects Section Stylings-------*/
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.projects .projectTagsContainer{
+  border: 2px solid white;
+  width: 90%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+} 
+
+.projects .projectTagsContainer .projectTags{
+ display: inline-block;
+ background-color: rgba(100,100,100,.5);
+ padding: .5% 1%;
+ border-radius: 10px;
+ box-shadow: 2px 2px black;
+
+}
+
+
+
+.projects .projectsList{
+  border: 2px solid white;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.projects .projectsList .projectContainer{
+  width: 25%;
+  height: 33%;
+  background-color: lightgray;
+  opacity: .5;
+  position: relative;
+}
+
+.projects .projectsList .projectContainer figcaption{
+  background-color: blue;
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+
+
+
+/*-------End Projects Section Stylings-------*/

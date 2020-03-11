@@ -57,10 +57,10 @@ export default class About extends Component {
 
           <div className="skillsContainer">
             <h2>
-              <span className="sectionHeaderOne">Frameworks</span>
+              <span className="sectionHeaderOne">Languages</span>
               <span className="colorDivider"> / </span>
               <span className="sectionHeaderTwo">
-                Languages<span className="colorDivider">:</span>
+                Frameworks<span className="colorDivider">:</span>
               </span>
             </h2>
             <p className="skillsList">
@@ -129,10 +129,10 @@ export default class About extends Component {
           </div>
           <div className="skillsContainer">
             <h2>
-              <span className="sectionHeaderOne">Frameworks</span>
+              <span className="sectionHeaderOne">Languages</span>
               <span className="colorDivider"> / </span>
               <span className="sectionHeaderTwo">
-                Languages<span className="colorDivider">:</span>
+                Frameworks<span className="colorDivider">:</span>
               </span>
             </h2>
             <p className="skillsList">

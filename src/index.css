@@ -38,9 +38,10 @@ h1 {
     font-weight: 600;
 }
 
-h2, p, span, td, th, h3 {
+h2, p, span, td, th, h3, figcaption {
     font-family: "Rubik", serif;
     text-shadow: 0px 2px black;
+    color: whitesmoke;
 }
 
 section {
