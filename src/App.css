@@ -662,7 +662,6 @@ nav .activeIcon {
     width: 60%;
     margin-top: 7vh;
   }
- 
   .about .socialLinksContainer .socialIconContainer {
     width: 50%;
     padding-bottom: 5%;
@@ -748,16 +747,16 @@ nav .activeIcon {
 /*-------End About Me Section Stylings-------*/
 
 /*-------Projects Section Stylings-------*/
-.projects{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.projects .projectTagsContainer{
-  border: 2px solid white;
+.projects .projectTagsContainer {
+  /* border: 2px solid white; */
   width: 90%;
   height: 10%;
   display: flex;
@@ -765,21 +764,32 @@ nav .activeIcon {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-} 
-
-.projects .projectTagsContainer .projectTags{
- display: inline-block;
- background-color: rgba(100,100,100,.5);
- padding: .5% 1%;
- border-radius: 10px;
- box-shadow: 2px 2px black;
-
 }
 
+.projects .projectTagsContainer .projectTags {
+  display: inline-block;
+  background-color: rgba(100, 100, 100, .5);
+  padding: .5% 1%;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+  text-align: center;
+  opacity: .7;
+}
+.projects .projectTagsContainer .projectTags:hover{
+  background-color: magenta;
+  cursor: pointer;
+  opacity: 1;
+}
 
+.projects .projectTagsContainer .projectTags .active{
+  background-color: magenta;
+  text-shadow: 0px;
+  opacity: 1;
+}
 
-.projects .projectsList{
-  border: 2px solid white;
+.projects .projectsList {
+  /* border: 2px solid white; */
+  box-shadow: inset 0px 0px 5px 5px black;
   width: 90%;
   height: 90%;
   display: flex;
@@ -787,9 +797,11 @@ nav .activeIcon {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: flex-start;
+  background-color: rgba(100, 100, 100, .2);
+  padding: 2%;
 }
 
-.projects .projectsList .projectContainer{
+.projects .projectsList .projectContainer {
   width: 25%;
   height: 33%;
   background-color: lightgray;
@@ -797,7 +809,7 @@ nav .activeIcon {
   position: relative;
 }
 
-.projects .projectsList .projectContainer figcaption{
+.projects .projectsList .projectContainer figcaption {
   background-color: blue;
   position: absolute;
   width: 100%;
@@ -805,8 +817,5 @@ nav .activeIcon {
   text-align: center;
   font-size: 2rem;
 }
-
-
-
 
 /*-------End Projects Section Stylings-------*/

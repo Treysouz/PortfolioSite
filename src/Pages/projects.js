@@ -18,25 +18,41 @@ export default class Projects extends Component {
     super();
     this.state = {
       currentTag: "all",
+      allTags: []
     };
   }
   componentDidMount() {
-    
     var database = firebase.database();
     database.ref("projects").on("value", snapshot => {
       var projects = snapshot.val();
+      var tags = [];
       for (var project in projects) {
-        var description = projects[project].description;
-        
-        projects[project].tags.forEach(
-          tag => $(".projectTagsContainer").append("<span class='projectTags'>"+tag+"</span>")
-        )
+        $(".projectsList").append(
+          "<figure class='projectContainer'><figcaption>" +
+            project +
+            "</figcaption></figure>"
+        );
+        projects[project].tags.forEach(tag => {
+          if (tags.indexOf(tag) === -1) {
+            tags.push(tag);
+          }
+        });
       }
+
+      tags.forEach(function(tag) {
+        $(".projectTagsContainer").append(
+          "<span class='projectTags'>" + tag + "</span>"
+        );
+      });
     });
   }
-  componentDidUpdate(){
-   
-  }
+
+  componentDidUpdate() {}
+
+  sortProjects = () => {
+
+  };
+
   render() {
     return (
       <section className="projects">
@@ -44,10 +60,7 @@ export default class Projects extends Component {
           <span className="projectTags">All</span>
         </div>
         <div className="projectsList">
-          <figure className="projectContainer">
-            <img></img>
-            <figcaption>afsafsafasfasf</figcaption>
-          </figure>
+        
         </div>
       </section>
     );
