@@ -781,9 +781,10 @@ nav .activeIcon {
   opacity: 1;
 }
 
-.projects .projectTagsContainer .projectTags .active{
+.projects .projectTagsContainer .active{
   background-color: magenta;
-  text-shadow: 0px;
+  box-shadow: none;
+  border: 1px solid white;
   opacity: 1;
 }
 

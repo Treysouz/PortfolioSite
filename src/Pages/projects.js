@@ -1,16 +1,8 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import $ from "jquery";
+import config from "../Components/firebase.js";
 
-const config = {
-  apiKey: "AIzaSyCJSDTISw_daKLmCkUwHO2z0h4nNHh4dzA",
-  authDomain: "portfolio-site-ec8fd.firebaseapp.com",
-  databaseURL: "https://portfolio-site-ec8fd.firebaseio.com",
-  projectId: "portfolio-site-ec8fd",
-  storageBucket: "portfolio-site-ec8fd.appspot.com",
-  messagingSenderId: "114449509420",
-  appId: "1:114449509420:web:bcc35ed83beb925c84f589"
-};
 firebase.initializeApp(config);
 
 export default class Projects extends Component {
@@ -18,8 +10,10 @@ export default class Projects extends Component {
     super();
     this.state = {
       currentTag: "all",
-      allTags: []
+      allTags: [],
+      projects: []
     };
+    this.projects=[];
   }
   componentDidMount() {
     var database = firebase.database();
@@ -27,11 +21,12 @@ export default class Projects extends Component {
       var projects = snapshot.val();
       var tags = [];
       for (var project in projects) {
-        $(".projectsList").append(
-          "<figure class='projectContainer'><figcaption>" +
-            project +
-            "</figcaption></figure>"
-        );
+       this.constructProjectContainers(project);
+        // $(".projectsList").append(
+        //   "<figure class='projectContainer'><figcaption>" +
+        //     project +
+        //     "</figcaption></figure>"
+        // );
         projects[project].tags.forEach(tag => {
           if (tags.indexOf(tag) === -1) {
             tags.push(tag);
@@ -49,9 +44,12 @@ export default class Projects extends Component {
 
   componentDidUpdate() {}
 
-  sortProjects = () => {
-
-  };
+  constructProjectContainers=(project)=>{
+    console.log(this.state.projects)
+    this.setState({
+      projects: this.state.projects.concat(project)
+    })
+  }
 
   render() {
     return (
@@ -60,7 +58,9 @@ export default class Projects extends Component {
           <span className="projectTags">All</span>
         </div>
         <div className="projectsList">
-        
+          {this.state.projects.map(project=>(
+            <p>{project}</p>
+          ))}
         </div>
       </section>
     );
