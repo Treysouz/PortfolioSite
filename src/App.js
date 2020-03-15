@@ -12,7 +12,7 @@ export default class App extends Component {
       currentPage: window.location.href.substr(
         window.location.href.indexOf("#")
       ),
-      mobileView: false
+      mobileView: false,
     };
   }
   getNewPage = page => {
@@ -24,10 +24,10 @@ export default class App extends Component {
     this.setState({
       mobileView: $(window).innerWidth() <= 600
     });
-    
   };
 
-  componentDidMount(){
+
+  componentDidMount() {
     window.addEventListener("resize", this.isMobile);
     this.isMobile();
   }
@@ -42,7 +42,8 @@ export default class App extends Component {
         {/* ----------Navigation Bar---------- */}
         <NavBar
           currentPage={this.state.currentPage}
-          getNewPage={this.getNewPage} mobileView={this.state.mobileView}
+          getNewPage={this.getNewPage}
+          mobileView={this.state.mobileView}
         ></NavBar>
         {/* ----------End Navigation Bar---------- */}
         {/* ----------Background Video---------- */}
@@ -54,7 +55,11 @@ export default class App extends Component {
         </div>
         {/* ----------End Background Video---------- */}
         {/* ----------Main Content --------- */}
-        <Router currentPage={this.state.currentPage} isMobile={this.isMobile} mobileView={this.state.mobileView}></Router>
+        <Router
+          currentPage={this.state.currentPage}
+          isMobile={this.isMobile}
+          mobileView={this.state.mobileView}
+        ></Router>
         {/* ----------End Main Content --------- */}
       </main>
     );

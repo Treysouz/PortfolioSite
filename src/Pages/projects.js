@@ -1,68 +1,116 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import $ from "jquery";
 import config from "../Components/firebase.js";
+import $ from "jquery";
 
 firebase.initializeApp(config);
+const DATABASE = firebase.database().ref("projects");
 
 export default class Projects extends Component {
   constructor() {
     super();
     this.state = {
-      currentTag: "all",
-      allTags: [],
-      projects: []
+      currentTag: "All",
+      projectView: false
     };
-    this.projects=[];
+    this.projectsData = null;
+    this.projects = [];
+    this.allTags = [];
   }
   componentDidMount() {
-    var database = firebase.database();
-    database.ref("projects").on("value", snapshot => {
-      var projects = snapshot.val();
-      var tags = [];
-      for (var project in projects) {
-       this.constructProjectContainers(project);
-        // $(".projectsList").append(
-        //   "<figure class='projectContainer'><figcaption>" +
-        //     project +
-        //     "</figcaption></figure>"
-        // );
-        projects[project].tags.forEach(tag => {
-          if (tags.indexOf(tag) === -1) {
-            tags.push(tag);
-          }
-        });
-      }
-
-      tags.forEach(function(tag) {
-        $(".projectTagsContainer").append(
-          "<span class='projectTags'>" + tag + "</span>"
-        );
-      });
+    DATABASE.on("value", snapshot => {
+      this.projectsData = snapshot.val();
+      this.sortProjects(this.state.currentTag);
     });
   }
 
-  componentDidUpdate() {}
+  componentWillUpdate() {}
 
-  constructProjectContainers=(project)=>{
-    console.log(this.state.projects)
+  componentWillUnmount() {}
+
+  sortProjects = currentTag => {
+    $(".projectTags").removeClass("active");
+    $(".projectTags").each(function() {
+      if ($(this).text() === currentTag && !$(this).hasClass("active")) {
+        $(this).addClass("active");
+      }
+    });
+    var projectsData = this.projectsData;
+    var newProjectList = [];
+    for (var project in projectsData) {
+      var tags = projectsData[project].tags;
+      tags.forEach(tag => {
+        if (!this.allTags.includes(tag)) {
+          this.allTags = this.allTags.concat(tag);
+        }
+      });
+
+      if (
+        projectsData[project].tags.includes(currentTag) ||
+        currentTag === "All"
+      ) {
+        newProjectList.push(project);
+        this.projects = newProjectList;
+      }
+    }
     this.setState({
-      projects: this.state.projects.concat(project)
-    })
-  }
+      currentTag: currentTag
+    });
+  };
 
+  toggleProjectView = () => {
+    this.setState({
+      projectView: !this.state.projectView
+    });
+  };
   render() {
-    return (
-      <section className="projects">
-        <div className="projectTagsContainer">
-          <span className="projectTags">All</span>
-        </div>
-        <div className="projectsList">
-          {this.state.projects.map(project=>(
-            <p>{project}</p>
-          ))}
-        </div>
-      </section>
-    );
+    if (this.state.projectView) {
+      return (
+        <section className="projects">
+          <div
+            className="overlay"
+            onClick={() => this.toggleProjectView()}
+          ></div>
+        </section>
+      );
+    } else {
+      return (
+        <section className="projects">
+          <div className="projectsOverlay"></div>
+          <div className="projectTagsContainer">
+            <span
+              className="projectTags"
+              onClick={() => this.sortProjects("All")}
+            >
+              All
+            </span>
+            {this.allTags.map(tag => (
+              <span
+                className="projectTags"
+                onClick={() => this.sortProjects(tag)}
+                key={tag}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="projectsList">
+            {this.projects.map(project => (
+              <figure
+                className="projectContainer"
+                key={project}
+                onClick={() => this.toggleProjectView()}
+              >
+                <img
+                  src={this.projectsData[project].image}
+                  alt={this.projectsData[project].alt}
+                ></img>
+                <figcaption>{project}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      );
+    }
   }
 }
