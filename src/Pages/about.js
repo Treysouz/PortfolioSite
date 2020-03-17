@@ -12,22 +12,37 @@ export default class About extends Component {
                 <img src={ProfilePic} alt="Tremayne Souza"></img>
               </div>
               <div className="socialLinksContainer">
-                <div className="socialIconContainer">
+                <a
+                  className="socialIconContainer"
+                  href="https://github.com/Treysouz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-github-alt"></i>
                   <p>GitHub</p>
-                </div>
-                <div className="socialIconContainer">
-                  <i className="fab fa-linkedin"></i>
-                  <p>Linkedin</p>
-                </div>
-                <div className="socialIconContainer">
+                </a>
+                {/* <div className="socialIconContainer">
+              <i className="fab fa-linkedin"></i>
+              <p>Linkedin</p>
+            </div> */}
+                <a
+                  className="socialIconContainer"
+                  href="https://www.codewars.com/users/Treysouz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fas fa-code"></i>
                   <p>Codewars</p>
-                </div>
-                <div className="socialIconContainer">
+                </a>
+                <a
+                  className="socialIconContainer"
+                  href="https://drive.google.com/file/d/1sDFsr1gvzJwCFAe00QvAq12XSb7_18Jn/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="far fa-file-alt"></i>
                   <p>Resume</p>
-                </div>
+                </a>
               </div>
               <h3 className="tagLine">
                 From &nbsp;
@@ -120,7 +135,7 @@ export default class About extends Component {
             <p>
               I’m a Syracuse University graduate with a background in applied
               mathematics and computer science who has been coding
-              professionally for 4 years and leisurely for 10. Currently, I’m a
+              professionally for 2 years and leisurely for 10. Currently, I’m a
               student in the CUNY TechWorks software development program
               building on my self-taught foundations. I am motivated by my love
               for solving algorithms and collaborating to create unique and
@@ -163,22 +178,37 @@ export default class About extends Component {
           </div>
 
           <div className="socialLinksContainer">
-            <div className="socialIconContainer">
+            <a
+              className="socialIconContainer"
+              href="https://github.com/Treysouz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-github-alt"></i>
               <p>GitHub</p>
-            </div>
-            <div className="socialIconContainer">
+            </a>
+            {/* <div className="socialIconContainer">
               <i className="fab fa-linkedin"></i>
               <p>Linkedin</p>
-            </div>
-            <div className="socialIconContainer">
+            </div> */}
+            <a
+              className="socialIconContainer"
+              href="https://www.codewars.com/users/Treysouz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fas fa-code"></i>
               <p>Codewars</p>
-            </div>
-            <div className="socialIconContainer">
+            </a>
+            <a
+              className="socialIconContainer"
+              href="https://drive.google.com/file/d/1sDFsr1gvzJwCFAe00QvAq12XSb7_18Jn/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="far fa-file-alt"></i>
               <p>Resume</p>
-            </div>
+            </a>
           </div>
         </section>
       );

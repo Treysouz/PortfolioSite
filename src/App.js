@@ -22,7 +22,7 @@ export default class App extends Component {
   };
   isMobile = () => {
     this.setState({
-      mobileView: $(window).innerWidth() <= 600
+      mobileView: ($(window).innerWidth() <= 600 || $(window).innerHeight()<=600)
     });
   };
 
@@ -59,6 +59,7 @@ export default class App extends Component {
           currentPage={this.state.currentPage}
           isMobile={this.isMobile}
           mobileView={this.state.mobileView}
+          getNewPage={this.getNewPage}
         ></Router>
         {/* ----------End Main Content --------- */}
       </main>

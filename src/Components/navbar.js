@@ -20,11 +20,25 @@ export default class NavBar extends Component {
   componentDidMount() {
 
     this.updateHeader(this.props.currentPage);
+    
+    // $("nav").hover(function(){
+    //   $(".navText").stop(true, true);
+    //   slideHeaderOut($(".navLinks").children(".navText"));
+    // })
 
     $(".navLinks").hover(function() {
       $(".navText").stop(true, true);
       slideHeaderOut($(this).children(".navText"));
     });
+
+    // $("nav").mouseleave(function(){
+    //   $(".navText").stop(true, true);
+    //   $(".navLinks").each(function(){
+    //     if (!$(this).hasClass("active")){
+    //       slideHeaderIn($(this).children(".navText"));
+    //     }
+    //   })
+    // })
 
     $(".navLinks").mouseleave(function() {
       $(".navText").stop(true, true);
@@ -32,6 +46,8 @@ export default class NavBar extends Component {
         slideHeaderIn($(this).children(".navText"));
       }
     });
+
+
 
     $(window).keydown(function(e) {
       var keycode = e.keyCode ? e.keyCode : e.which;

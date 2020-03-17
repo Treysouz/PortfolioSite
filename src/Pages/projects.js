@@ -11,7 +11,8 @@ export default class Projects extends Component {
     super();
     this.state = {
       currentTag: "All",
-      projectView: false
+      projectView: false,
+      currentProject: null
     };
     this.projectsData = null;
     this.projects = [];
@@ -58,59 +59,146 @@ export default class Projects extends Component {
     });
   };
 
-  toggleProjectView = () => {
+  openProjectView = project => {
     this.setState({
-      projectView: !this.state.projectView
+      projectView: true,
+      currentProject: project
     });
   };
-  render() {
+
+  exitProjectView = () => {
     if (this.state.projectView) {
+      this.setState({
+        projectView: false
+      });
+    }
+  };
+  projectOverlay = () => {
+    var projectTitle = this.state.currentProject;
+
+    if (this.state.projectView) {
+      var projectData = this.projectsData[projectTitle];
       return (
-        <section className="projects">
-          <div
-            className="overlay"
-            onClick={() => this.toggleProjectView()}
-          ></div>
-        </section>
-      );
-    } else {
-      return (
-        <section className="projects">
-          <div className="projectsOverlay"></div>
-          <div className="projectTagsContainer">
-            <span
-              className="projectTags"
-              onClick={() => this.sortProjects("All")}
-            >
-              All
-            </span>
-            {this.allTags.map(tag => (
-              <span
-                className="projectTags"
-                onClick={() => this.sortProjects(tag)}
-                key={tag}
-              >
-                {tag}
-              </span>
+        <div className="overlay">
+          <i
+            onClick={() => this.exitProjectView()}
+            className="far fa-times-circle exitView"
+          ></i>
+          <h1>{projectTitle}</h1>
+          <ul>
+            {projectData.description.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="projectTagsList">
+            {projectData.tags.map(tag => (
+              <span key={tag}>#{tag}&nbsp;</span>
             ))}
           </div>
-          <div className="projectsList">
-            {this.projects.map(project => (
-              <figure
-                className="projectContainer"
-                key={project}
-                onClick={() => this.toggleProjectView()}
-              >
-                <img
-                  src={this.projectsData[project].image}
-                  alt={this.projectsData[project].alt}
-                ></img>
-                <figcaption>{project}</figcaption>
-              </figure>
-            ))}
+          <div className="projectLinksContainer">
+            {this.populateContactLink(projectData.contact)}
+            {this.populateWebsiteLink(projectData.website)}
+            {this.populateGithub(projectData.github)}
           </div>
-        </section>
+
+          {/* <div className="projectLinksContainer">
+            <a className="projectLink" href="test">
+              <i className="fab fa-github-alt"></i>
+              <p>GitHub</p>
+            </a>
+            <a className="projectLink" href="#">
+              <i className="far fa-window-maximize"></i>
+              <p>WebSite</p>
+            </a>
+          </div> */}
+        </div>
       );
     }
+  };
+  populateContactLink = contact => {
+    if (typeof contact !== "undefined") {
+      return (
+        <a
+          className="projectLink"
+          href={contact} onClick={()=>this.props.getNewPage("#contact")}
+        >
+          <i className="fas fa-envelope"></i>
+          <p>Contact for Code</p>
+        </a>
+      );
+    }
+  };
+  populateWebsiteLink = website => {
+    if (typeof website !== "undefined") {
+      return (
+        <a
+          className="projectLink"
+          href={website}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="far fa-window-maximize"></i>
+          <p>Website</p>
+        </a>
+      );
+    }
+  };
+  populateGithub = github => {
+    if (typeof github !== "undefined") {
+      return (
+        <a
+          className="projectLink"
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-github-alt"></i>
+          <p>GitHub</p>
+        </a>
+      );
+    }
+  };
+
+  render() {
+    return (
+      <section className="projects">
+        {this.projectOverlay()}
+        <div
+          className="projectTagsContainer"
+          onClick={() => this.exitProjectView()}
+        >
+          <span
+            className="projectTags"
+            onClick={() => this.sortProjects("All")}
+          >
+            All
+          </span>
+          {this.allTags.map(tag => (
+            <span
+              className="projectTags"
+              onClick={() => this.sortProjects(tag)}
+              key={tag}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="projectsList" onClick={() => this.exitProjectView()}>
+          {this.projects.map(project => (
+            <figure
+              className="projectContainer"
+              key={project}
+              onClick={() => this.openProjectView(project)}
+            >
+              <img
+                src={this.projectsData[project].image}
+                alt={this.projectsData[project].alt}
+              ></img>
+              <figcaption>{project}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    );
   }
 }

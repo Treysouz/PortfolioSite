@@ -20,7 +20,7 @@ export default class Router extends Component {
             }
             case "#projects":{
                 return(
-                    <Projects></Projects>
+                    <Projects projectView={this.props.projectView} getNewPage={this.props.getNewPage}></Projects>
                 )
             }
             case "#contact":{

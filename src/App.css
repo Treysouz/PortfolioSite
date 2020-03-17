@@ -222,10 +222,10 @@ nav .activeIcon {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-height: 600px) {
   nav {
     flex-direction: row;
-    height: 11vh;
+    height: 20vh;
     width: 100vw;
     bottom: 0;
     padding-top: 1vh;
@@ -245,7 +245,7 @@ nav .activeIcon {
   }
 }
 
-@media(max-width: 350px) {
+@media(max-width: 350px), (max-height: 600px) {
   nav .navIcons {
     font-size: 1.5rem;
   }
@@ -376,7 +376,7 @@ nav .activeIcon {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-height: 600px) {
   .welcome .welcomeMessage {
     width: 100%;
   }
@@ -388,6 +388,22 @@ nav .activeIcon {
   }
   .welcome .welcomeMessage h2 {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .welcome {
+    height: 75vh;
+  }
+  .welcome .welcomeMessage .salutations {
+    font-size: 1rem;
+    margin-bottom: 1%;
+  }
+  .welcome .welcomeMessage h2 {
+    font-size: 1rem;
+  }
+  .welcome .welcomeMessage .signOff i {
+    font-size: 1.5rem;
   }
 }
 
@@ -591,7 +607,7 @@ nav .activeIcon {
   }
 }
 
-@media (max-width: 1000px), (max-height: 650px) {
+@media (max-width: 1000px) {
   .about h2 {
     font-size: 1.2rem;
   }
@@ -702,43 +718,43 @@ nav .activeIcon {
   }
 }
 
-@media (max-height:480px) {
+@media (max-height: 600px) {
   .about {
-    display: none;
+    width: 100vw;
+    height: 79vh;
+    justify-content: flex-start;
+    overflow: scroll;
   }
-}
-
-@media (min-height:1000px) {
-  .about {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .about .profilePicContainer {
+    margin: 0;
   }
   .about .bioContainer, .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
-    width: 100%;
+    padding: 1% 2%;
+  }
+  .about .bioContainer .introContainer {
+    flex-wrap: wrap;
+  }
+  .about .profilePicContainer {
+    width: 30%;
+  }
+  .about .bioContainer h3, .about p, .about .skillsList, .about .skillsList .colorDivider {
+    font-size: .65rem;
   }
   .about h2 {
-    font-size: 2rem;
-  }
-  .about p {
-    font-size: 1.3rem;
-  }
-  .about .skillsList {
-    font-size: 1.3rem;
-  }
-  .about .socialLinksContainer .socialIconContainer i {
-    font-size: 4rem;
+    font-size: .8rem;
+    margin-bottom: 1%;
   }
   .about h2 .colorDivider {
-    font-size: 3rem;
-    color: magenta;
-  }
-  .about .skillsList .colorDivider {
-    font-size: 2rem;
+    font-size: .9rem;
   }
   .about .socialLinksContainer .socialIconContainer {
-    width: auto;
-    margin-top: 10%;
+    margin: 0 2%;
+  }
+  .about .socialLinksContainer .socialIconContainer i {
+    font-size: 1.5rem;
+  }
+  .about .socialLinksContainer .socialIconContainer p {
+    text-shadow: none;
   }
 }
 
@@ -756,12 +772,80 @@ nav .activeIcon {
 }
 
 .projects .overlay {
-  background-color: red;
-  width: 100%;
-  height: 100%;
+  background-color: rgba(0, 0, 0, .9);
+  width: 50vw;
+  height: 80vh;
   animation: fadeInContent;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  position: fixed;
+  z-index: 5;
+  border: 2px ridge magenta;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+}
+
+.projects .overlay .exitView {
+  color: lightgray;
+  font-size: 2rem;
+  position: absolute;
+  top: 3%;
+  right: 10%;
+}
+
+.projects .overlay .exitView:hover {
+  color: lightskyblue;
+  cursor: pointer;
+}
+
+.projects .overlay h1 {
+  border-bottom: 2px ridge lightskyblue;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.projects .overlay li {
+  font-size: 1.5rem;
+  padding-bottom: 2%;
+}
+
+.projects .overlay .projectLinksContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.projects .overlay .projectLinksContainer p {
+  font-size: 1.5rem;
+  text-shadow: 0px 1px lightskyblue;
+  letter-spacing: 1px;
+}
+
+.projects .overlay .projectLinksContainer i {
+  font-size: 4rem;
+  color: whitesmoke;
+  text-shadow: 0px 1px magenta;
+  margin-bottom: 5%;
+}
+
+.projects .overlay .projectLinksContainer i:hover {
+  color: magenta;
+  text-shadow: 0px 0px;
+  cursor: pointer;
+}
+
+.projects .overlay .projectTagsList {
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .projects .projectTagsContainer {
@@ -786,6 +870,7 @@ nav .activeIcon {
   font-weight: 900;
   letter-spacing: 2px;
   transition: opacity .5s;
+  white-space: nowrap;
 }
 
 .projects .projectTagsContainer .projectTags:hover {
@@ -824,7 +909,6 @@ nav .activeIcon {
   border-radius: 50%;
   border: 2px ridge darkmagenta;
   background-color: lightskyblue;
-  
 }
 
 .projects .projectsList .projectContainer:hover, .projects .projectsList .projectContainer .active {
@@ -853,4 +937,221 @@ nav .activeIcon {
   border-radius: 20px;
 }
 
+/*-----Media Queries -----*/
+
+@media (max-width: 1550px) {
+  .projects .projectsList {
+    height: 80%;
+  }
+  .projects .projectsList .projectContainer {
+    width: 250px;
+    height: 250px;
+  }
+  .projects .projectsList .projectContainer figcaption {
+    font-size: 1.5rem;
+  }
+  .projects .overlay li, .projects .overlay .projectLinksContainer p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .projects .projectsList .projectContainer {
+    width: 200px;
+    height: 200px;
+  }
+  .projects .projectTagsContainer .projectTags {
+    font-size: .8rem;
+    margin: 0 1%;
+  }
+  .projects .overlay li, .projects .overlay .projectLinksContainer p {
+    font-size: 1.2rem;
+  }
+  .projects .overlay .projectLinksContainer i {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .projects {
+    width: 75vw;
+  }
+  .projects .projectsList {
+    padding: 10% 2% 0;
+  }
+  .projects .projectsList .projectContainer {
+    width: 150px;
+    height: 150px;
+  }
+  .projects .projectsList .projectContainer figcaption {
+    font-size: 1.2rem;
+  }
+  .projects .overlay li {
+    font-size: 1rem;
+  }
+  .projects .overlay .projectLinksContainer p {
+    font-size: .9rem;
+    letter-spacing: 0px;
+  }
+  .projects .overlay .projectTagsList {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .projects .overlay h1 {
+    font-size: 1.5rem;
+  }
+  .projects .projectsList .projectContainer {
+    width: 125px;
+    height: 125px;
+  }
+  .projects .overlay li {
+    font-size: .85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects {
+    width: 100vw;
+    height: 80vh;
+    margin-top: 5vh;
+  }
+  .projects .overlay {
+    width: 70%;
+  }
+  .projects .projectTagsContainer {
+    height: 25%;
+  }
+  .projects .projectTagsContainer .projectTags {
+    font-size: .7rem;
+  }
+  .projects .projectsList {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects .overlay {
+    width: 90%;
+    padding: 10%;
+    height: 60vh;
+  }
+  .projects .overlay li, .projects .overlay .projectLinksContainer p {
+    font-size: .8rem;
+  }
+  .projects .projectTagsContainer .projectTags {
+    padding: .5% 2%;
+  }
+}
+
+/*-----End Media Queries -----*/
+
 /*-------End Projects Section Stylings-------*/
+
+/*-------Contact Section Stylings-------*/
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 3%;
+}
+
+.contact form .inputContainer {
+  width: 50%;
+  text-align: center;
+}
+
+.contact form .inputContainer label {
+  font-size: 2rem;
+  border-bottom: 5px ridge magenta;
+  padding: 0 10%;
+}
+
+.contact form .inputContainer .textInput {
+  background-color: rgba(0, 0, 0, .2);
+  border: none;
+  border-bottom: 5px ridge lightskyblue;
+  width: 100%;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 2%;
+  margin-top: 2vh;
+}
+
+.contact form .inputContainer .messageInput {
+  background-color: rgba(0, 0, 0, .2);
+  width: 100%;
+  border: none;
+  border-bottom: 5px ridge lightskyblue;
+  margin-top: 2vh;
+  height: 20vh;
+  border-radius: 10px 10px 0 0;
+  font-size: 1.5rem;
+  color: white;
+  padding: 2%;
+}
+
+.contact form .formButton {
+  background-color: rgba(0, 0, 0, .2);
+  font-size: 2rem;
+  padding: 0 3%;
+  border-radius: 10px;
+  border: 2px ridge magenta;
+  color: white;
+}
+
+.contact form .formButton:hover {
+  border: 2px ridge lightskyblue;
+  cursor: pointer;
+  text-shadow: 0px 0px 3px magenta;
+}
+
+/*-----Media Queries -----*/
+
+@media(max-width: 1000px) {
+  .contact form .inputContainer label {
+    font-size: 1.5rem;
+  }
+  .contact form .inputContainer .textInput {
+    font-size: 1rem;
+  }
+  .contact form .inputContainer .messageInput {
+    font-size: 1rem;
+  }
+  .contact form .formButton {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 600px) {
+  .contact form {
+    justify-content: space-around;
+    margin-top: 5%;
+  }
+  .contact form .inputContainer {
+    width: 100%;
+  }
+  .contact form .inputContainer .messageInput {
+    height: 25vh;
+  }
+  .contact form .inputContainer .textInput, .contact form .inputContainer .messageInput {
+    width: 80%;
+  }
+}
+
+/*-----End Media Queries -----*/
+
+/*-------End Contact Section Stylings-------*/
