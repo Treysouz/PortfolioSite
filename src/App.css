@@ -134,20 +134,23 @@
 /*-------Navigation Stylings-------*/
 
 nav {
-  position: fixed;
+  position: absolute;
   z-index: 1;
+  width: 25vw;
   height: 100vh;
-  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 5vw;
+  align-items: flex-start;
+  border: 2px solid white;
 }
 
 nav .navLinks {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 5vw;
+  width: 100%;
 }
 
 nav .navLinks:hover .navIcons {
@@ -161,7 +164,7 @@ nav .navIcons {
   opacity: 0.5;
   color: white;
   text-shadow: 3px 3px black;
-  width: 100px;
+  padding-right: 2vw;
   text-align: center;
 }
 
@@ -201,56 +204,65 @@ nav .activeIcon {
 
 /*--- Media Queries */
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   nav .navIcons {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   nav .navText {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  nav .navLinks {
+    padding-left: 2vw;
   }
 }
 
 @media (max-width: 1000px) {
-  nav {
-    margin-left: 0vw;
+  nav .navLinks {
+    padding-left: 1vw;
   }
   nav .navIcons {
     font-size: 2rem;
+    padding-right: 1vw;
   }
   nav .navText {
     font-size: 1rem;
   }
 }
 
-@media (max-width: 600px), (max-height: 600px) {
+@media(max-width: 600px), (max-height: 600px) {
   nav {
+    position: fixed;
     flex-direction: row;
-    height: 20vh;
     width: 100vw;
+    height: 15%;
     bottom: 0;
-    padding-top: 1vh;
-    border-radius: 50px;
+    align-items: center;
+    justify-content: space-around;
   }
   nav .navLinks {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding: 0;
   }
-}
-
-@media(max-width: 400px) {
-  nav .navIcons {
-    width: 50px;
-  }
-}
-
-@media(max-width: 350px), (max-height: 600px) {
   nav .navIcons {
     font-size: 1.5rem;
+    padding: 0;
   }
   nav .mobileViewText {
     font-size: .8rem;
+  }
+}
+
+@media (max-height: 600px){
+  nav .navLinks{
+    flex-direction: row;
+    
+  }
+  nav .navIcons{
+    padding-right: 1vw;
   }
 }
 
@@ -352,58 +364,39 @@ nav .activeIcon {
 
 /*--- Media Queries */
 
-@media (max-width: 1200px) {
-  .welcome {
-    width: 70vw;
+@media (max-width: 1400px) {
+  .welcome .welcomeMessage .salutations {
+    font-size: 4.5rem;
   }
+  .welcome .welcomeMessage h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .welcome .welcomeMessage .salutations {
+    font-size: 4rem;
+  }
+  .welcome .welcomeMessage h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
   .welcome .welcomeMessage .salutations {
     font-size: 3.5rem;
-  }
-  .welcome .welcomeMessage h2 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 800px) {
-  .welcome {
-    width: 60vw;
-  }
-  .welcome .welcomeMessage .salutations {
-    font-size: 2rem;
-  }
-  .welcome .welcomeMessage h2 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 600px), (max-height: 600px) {
-  .welcome .welcomeMessage {
-    width: 100%;
-  }
-  .welcome {
-    width: 100vw;
-  }
-  .welcome .welcomeMessage .salutations {
-    font-size: 1.5rem;
   }
   .welcome .welcomeMessage h2 {
     font-size: 1.3rem;
   }
 }
 
-@media (max-height: 600px) {
-  .welcome {
-    height: 75vh;
-  }
+@media (max-width: 1000px) {
   .welcome .welcomeMessage .salutations {
-    font-size: 1rem;
-    margin-bottom: 1%;
+    font-size: 2.5rem;
   }
   .welcome .welcomeMessage h2 {
     font-size: 1rem;
-  }
-  .welcome .welcomeMessage .signOff i {
-    font-size: 1.5rem;
   }
 }
 
@@ -439,78 +432,56 @@ nav .activeIcon {
 /*-------About Me Section Stylings-------*/
 
 .about {
-  display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 75vw;
-  height: 100vh;
-  overflow: hidden;
+  justify-content: space-evenly;
+  padding: 5% 1%;
 }
 
-.about h2 {
+.about h3 {
   font-size: 2rem;
   border-bottom: 3px ridge magenta;
-  margin-bottom: 5%;
+  margin: 3% 0;
 }
 
-.about p {
+.about h3 .colorDivider {
   font-size: 1.5rem;
-}
-
-.about .sectionHeaderOne {
-  vertical-align: top;
-}
-
-.about .sectionHeaderTwo {
-  vertical-align: bottom;
-}
-
-.about .colorDivider {
-  color: magenta;
-}
-
-.about h2 .colorDivider {
-  font-size: 3rem;
   color: magenta;
   text-shadow: 2px 2px black;
 }
 
-.about .skillsList .colorDivider {
-  color: lightskyblue;
-  font-size: 2.5rem;
-  text-shadow: 2px 2px black;
-}
-
-.about .skillsList {
-  font-size: 1.5rem;
-  text-shadow: 0 3px black;
-  text-align: left;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.about .bioContainer, .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
+.introContainer, .skillsContainer, .socialLinksContainer, .bioContainer {
   width: 50%;
-  height: auto;
-  padding: 2% 3%;
+  padding-right: 2vw;
 }
 
-.about .profilePicContainer {
+.introContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+
+.introContainer h2 {
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+
+.introContainer .profilePicContainer {
+  width: 35%;
   position: relative;
-  width: 40%;
-  margin: 1% 5% 5%;
-}
-
-.about .profilePicContainer img {
-  width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: 50%;
-  border: 2px ridge magenta;
+  border: 1px ridge magenta;
 }
 
-.about .profilePicContainer .imageFilter {
+.introContainer .profilePicContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.introContainer .profilePicContainer .imageFilter {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -519,26 +490,28 @@ nav .activeIcon {
   box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, .5);
   border-radius: 50%;
   z-index: 1;
+  bottom: 0;
 }
 
-.about .bioContainer {
-  padding-top: 5%;
+.bioContainer p {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  line-height: 2.5rem;
+  text-shadow: 2px 2px black;
 }
 
-.about .bioContainer h3 {
-  color: whitesmoke;
-  font-size: 1.8rem;
+.about .skillsContainer .skillsList .colorDivider {
+  color: lightskyblue;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px black;
+}
+
+.about .skillsContainer .skillsList {
+  font-size: 1.5rem;
+  text-shadow: 0 3px black;
   text-align: left;
-  text-transform: uppercase;
-  padding-top: 2%;
-  white-space: nowrap;
-}
-
-.about .bioContainer .introContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap-reverse;
+  width: 100%;
+  padding-left: 2vw;
 }
 
 .about .socialLinksContainer {
@@ -547,6 +520,8 @@ nav .activeIcon {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-around;
+  border-top: 4px ridge magenta;
+  padding-top: 5vh;
 }
 
 .about .socialLinksContainer .socialIconContainer {
@@ -560,7 +535,7 @@ nav .activeIcon {
 .about .socialLinksContainer .socialIconContainer i {
   font-size: 4rem;
   color: whitesmoke;
-  text-shadow: 0px 1px magenta;
+  text-shadow: 0px 0px 3px magenta;
   margin-bottom: 5%;
 }
 
@@ -571,190 +546,151 @@ nav .activeIcon {
 }
 
 .about .socialLinksContainer .socialIconContainer p {
-  text-shadow: 0px 1px lightskyblue;
+  text-shadow: 0px 0px 3px lightskyblue;
+  font-size: 1.5rem;
+}
+
+.about .mobile {
+  display: none;
 }
 
 /*-----Media Queries -----*/
 
-@media (max-width: 1600px) {
-  .about h2 {
-    font-size: 1.4rem;
+/* @media (max-width: 1700px) {
+  .introContainer h2 {
+    font-size: 1.5rem;
   }
-  .about p {
-    font-size: 1.3rem;
+  .bioContainer p, .about .skillsContainer .skillsList, .about .socialLinksContainer .socialIconContainer p {
+    font-size: 1.2rem;
   }
-  .about .skillsList {
-    font-size: 1.3rem;
+  .about h3 {
+    font-size: 1.5rem;
   }
-  .about h2 .colorDivider {
+  .bioContainer p {
+    padding-left: 0;
+  }
+} */
+
+@media (max-width: 1400px), (max-height: 800px) {
+  .introContainer h2 {
+    font-size: 1.5rem;
+  }
+  .bioContainer p, .about .skillsContainer .skillsList, .about .socialLinksContainer .socialIconContainer p, .about .skillsContainer .skillsList .colorDivider {
+    font-size: 1.2rem;
+  }
+  .about h3, .about h3 .colorDivider {
+    font-size: 1.5rem;
+  }
+  .about .socialLinksContainer .socialIconContainer i {
     font-size: 3rem;
-    color: magenta;
-  }
-  .about .bioContainer h3 {
-    font-size: 1.3rem;
-  }
-  .about .skillsList .colorDivider {
-    font-size: 2rem;
   }
 }
 
-@media (max-width: 1200px) {
-  .about {
-    width: 70vw;
+@media (max-width: 1200px), (max-height: 750px) {
+  .introContainer h2 {
+    font-size: 1.3rem;
+  }
+  .bioContainer p, .about .skillsContainer .skillsList, .about .socialLinksContainer .socialIconContainer p, .about .skillsContainer .skillsList .colorDivider {
+    font-size: 1rem;
+  }
+  .bioContainer p {
+    line-height: 2rem;
+  }
+  .about h3, .about h3 .colorDivider {
+    font-size: 1.3rem;
   }
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 2.5rem;
   }
 }
 
-@media (max-width: 1000px) {
-  .about h2 {
-    font-size: 1.2rem;
-  }
-  .about p {
+@media (max-width: 1000px), (max-height: 750px) {
+  .introContainer h2 {
     font-size: 1rem;
   }
-  .about .skillsList {
+  .bioContainer p, .about .skillsContainer .skillsList, .about .socialLinksContainer .socialIconContainer p, .about .skillsContainer .skillsList .colorDivider {
+    font-size: .8rem;
+  }
+  .bioContainer p {
+    line-height: 1rem;
+  }
+  .about h3, .about h3 .colorDivider {
     font-size: 1rem;
   }
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 2rem;
   }
-  .about h2 .colorDivider {
-    font-size: 1.5rem;
+}
+
+@media (max-width: 600px), (max-height: 600px) {
+  .about {
+    justify-content: flex-start;
+    padding: 5%;
   }
-  .about .skillsList .colorDivider {
-    font-size: 1.2rem;
-  }
-  .about .bioContainer h3 {
+  .introContainer h2 {
+    letter-spacing: 0px;
     font-size: 1rem;
   }
-}
-
-@media (max-width: 800px) {
-  .about {
-    width: 65vw;
-    justify-content: center;
+  .about h3 {
+    margin: 1% 0;
   }
-  .about .profilePicContainer {
-    width: 50%;
-  }
-  .about h2 {
-    text-align: center;
-  }
-  .about h2 .colorDivider {
-    font-size: 1.3rem;
-  }
-  .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
-    padding: 0;
-  }
-  .about .bioContainer {
-    padding: 2% 0 0;
-  }
-  .about .sectionHeaderOne, .about .sectionHeaderTWo {
-    vertical-align: middle
-  }
-}
-
-@media (max-width: 600px) {
-  .about {
-    width: 100vw;
-    height: 80vh;
-    padding: 0 2%;
-    flex-direction: row;
-    text-align: center;
-    overflow: scroll;
-  }
-  .about .bioContainer, .about .skillsContainer, .about .miscInfoContainer {
+  .introContainer, .skillsContainer, .bioContainer {
     width: 100%;
-    padding: 2% 0 0;
+    padding-right: 0;
   }
-  .about .socialLinksContainer, .about .profilePicContainer {
-    width: 40%;
-    margin: 0;
-    margin-top: 0;
+  .skillsContainer {
+    margin-top: 2vh;
   }
   .about .socialLinksContainer {
-    width: 60%;
-    margin-top: 7vh;
+    border: none;
+  }
+  .introContainer {
+    justify-content: space-evenly;
+  }
+  .introContainer .profilePicContainer {
+    width: 35%;
+    margin-bottom: 2vh;
+  }
+  .about .socialLinksContainer {
+    padding-top: 2vh;
+    width: 50%;
   }
   .about .socialLinksContainer .socialIconContainer {
     width: 50%;
-    padding-bottom: 5%;
   }
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 1.5rem;
   }
-  .about h2 {
-    font-size: 1rem;
-    margin-bottom: 1%;
+  .about .mobile {
+    display: flex;
   }
-  .about p {
-    font-size: .8rem;
-  }
-  .about .skillsList {
-    font-size: .8rem;
-    text-align: center;
-  }
-  .about h2 .colorDivider {
-    font-size: 1rem;
-  }
-  .about .skillsList .colorDivider {
-    font-size: 1rem;
-  }
-  .about .bioContainer h3 {
-    font-size: .75rem;
-  }
-  .about .profilePicContainer {
-    float: left;
-  }
-  .about .bioContainer h3 {
-    white-space: normal;
-    text-align: center;
-    width: 100%;
-  }
-  .about .bioContainer .introContainer {
-    flex-wrap: wrap;
+  .about .desktop {
+    display: none;
   }
 }
 
-@media (max-height: 600px) {
-  .about {
-    width: 100vw;
-    height: 79vh;
-    justify-content: flex-start;
-    overflow: scroll;
+@media (max-height: 600px){
+  .about{
+    padding: 1%;
+    justify-content: center;
   }
-  .about .profilePicContainer {
-    margin: 0;
+  .introContainer{
+    height: 100%;
   }
-  .about .bioContainer, .about .skillsContainer, .about .miscInfoContainer, .about .socialLinksContainer {
-    padding: 1% 2%;
+  .introContainer .profilePicContainer{
+    width: 50%;
   }
-  .about .bioContainer .introContainer {
-    flex-wrap: wrap;
+   .socialLinksContainer{
+    width: 50%;
+    padding: 0;
   }
-  .about .profilePicContainer {
-    width: 30%;
+  .introContainer,  .skillsContainer, .bioContainer {
+    width: 33%;
+    padding-right: 1%;
+    height: auto;
   }
-  .about .bioContainer h3, .about p, .about .skillsList, .about .skillsList .colorDivider {
-    font-size: .65rem;
-  }
-  .about h2 {
-    font-size: .8rem;
-    margin-bottom: 1%;
-  }
-  .about h2 .colorDivider {
-    font-size: .9rem;
-  }
-  .about .socialLinksContainer .socialIconContainer {
-    margin: 0 2%;
-  }
-  .about .socialLinksContainer .socialIconContainer i {
-    font-size: 1.5rem;
-  }
-  .about .socialLinksContainer .socialIconContainer p {
-    text-shadow: none;
+  .bioContainer p, .about .skillsContainer .skillsList, .about .socialLinksContainer .socialIconContainer p, .about .skillsContainer .skillsList .colorDivider {
+    font-size: .7rem;
   }
 }
 
@@ -939,112 +875,6 @@ nav .activeIcon {
 
 /*-----Media Queries -----*/
 
-@media (max-width: 1550px) {
-  .projects .projectsList {
-    height: 80%;
-  }
-  .projects .projectsList .projectContainer {
-    width: 250px;
-    height: 250px;
-  }
-  .projects .projectsList .projectContainer figcaption {
-    font-size: 1.5rem;
-  }
-  .projects .overlay li, .projects .overlay .projectLinksContainer p {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .projects .projectsList .projectContainer {
-    width: 200px;
-    height: 200px;
-  }
-  .projects .projectTagsContainer .projectTags {
-    font-size: .8rem;
-    margin: 0 1%;
-  }
-  .projects .overlay li, .projects .overlay .projectLinksContainer p {
-    font-size: 1.2rem;
-  }
-  .projects .overlay .projectLinksContainer i {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1000px) {
-  .projects {
-    width: 75vw;
-  }
-  .projects .projectsList {
-    padding: 10% 2% 0;
-  }
-  .projects .projectsList .projectContainer {
-    width: 150px;
-    height: 150px;
-  }
-  .projects .projectsList .projectContainer figcaption {
-    font-size: 1.2rem;
-  }
-  .projects .overlay li {
-    font-size: 1rem;
-  }
-  .projects .overlay .projectLinksContainer p {
-    font-size: .9rem;
-    letter-spacing: 0px;
-  }
-  .projects .overlay .projectTagsList {
-    font-size: .8rem;
-  }
-}
-
-@media (max-width: 800px) {
-  .projects .overlay h1 {
-    font-size: 1.5rem;
-  }
-  .projects .projectsList .projectContainer {
-    width: 125px;
-    height: 125px;
-  }
-  .projects .overlay li {
-    font-size: .85rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .projects {
-    width: 100vw;
-    height: 80vh;
-    margin-top: 5vh;
-  }
-  .projects .overlay {
-    width: 70%;
-  }
-  .projects .projectTagsContainer {
-    height: 25%;
-  }
-  .projects .projectTagsContainer .projectTags {
-    font-size: .7rem;
-  }
-  .projects .projectsList {
-    height: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .projects .overlay {
-    width: 90%;
-    padding: 10%;
-    height: 60vh;
-  }
-  .projects .overlay li, .projects .overlay .projectLinksContainer p {
-    font-size: .8rem;
-  }
-  .projects .projectTagsContainer .projectTags {
-    padding: .5% 2%;
-  }
-}
-
 /*-----End Media Queries -----*/
 
 /*-------End Projects Section Stylings-------*/
@@ -1120,37 +950,6 @@ nav .activeIcon {
 }
 
 /*-----Media Queries -----*/
-
-@media(max-width: 1000px) {
-  .contact form .inputContainer label {
-    font-size: 1.5rem;
-  }
-  .contact form .inputContainer .textInput {
-    font-size: 1rem;
-  }
-  .contact form .inputContainer .messageInput {
-    font-size: 1rem;
-  }
-  .contact form .formButton {
-    font-size: 1.5rem;
-  }
-}
-
-@media(max-width: 600px) {
-  .contact form {
-    justify-content: space-around;
-    margin-top: 5%;
-  }
-  .contact form .inputContainer {
-    width: 100%;
-  }
-  .contact form .inputContainer .messageInput {
-    height: 25vh;
-  }
-  .contact form .inputContainer .textInput, .contact form .inputContainer .messageInput {
-    width: 80%;
-  }
-}
 
 /*-----End Media Queries -----*/
 

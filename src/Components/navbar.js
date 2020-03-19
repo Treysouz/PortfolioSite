@@ -3,7 +3,7 @@ import $ from "jquery";
 
 function slideHeaderOut(header) {
   header.animate({
-    width: "175px",
+    width: "100%",
     padding: "5px"
   });
 }
