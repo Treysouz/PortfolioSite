@@ -142,7 +142,6 @@ nav {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-
 }
 
 nav .navLinks {
@@ -232,7 +231,7 @@ nav .activeIcon {
   }
 }
 
-@media(max-width: 600px), (max-height: 600px) and (min-width:600px){
+@media(max-width: 600px), (max-height: 600px) and (min-width:600px) {
   nav {
     position: fixed;
     flex-direction: row;
@@ -255,8 +254,6 @@ nav .activeIcon {
     font-size: .8rem;
   }
 }
-
-
 
 /*--- End Media Queries */
 
@@ -594,10 +591,9 @@ nav .activeIcon {
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 2.5rem;
   }
-  
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1000px) {
   .introContainer h2 {
     font-size: 1rem;
   }
@@ -613,7 +609,7 @@ nav .activeIcon {
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 2rem;
   }
-  .introContainer, .skillsContainer, .bioContainer,.about .socialLinksContainer {
+  .introContainer, .skillsContainer, .bioContainer, .about .socialLinksContainer {
     width: 100%;
     padding-right: 0;
   }
@@ -632,7 +628,6 @@ nav .activeIcon {
     width: 100%;
     text-align: center;
   }
-  
   .about h3 {
     margin: 1% 0;
   }
@@ -669,18 +664,14 @@ nav .activeIcon {
   .about .desktop {
     display: none;
   }
- 
-  
 }
 
-
 @media (max-height: 550px) and (min-width: 600px) {
-  .introContainer, .skillsContainer, .bioContainer,.about .socialLinksContainer {
+  .introContainer, .skillsContainer, .bioContainer, .about .socialLinksContainer {
     width: 50%;
     padding-right: 1%;
     height: auto;
   }
-  
   .about .mobile {
     display: flex;
   }
@@ -698,29 +689,28 @@ nav .activeIcon {
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 1.5rem;
   }
-  .about{
+  .about {
     padding: 1%;
     justify-content: center;
   }
-  .introContainer{
+  .introContainer {
     height: auto;
     justify-content: space-evenly;
   }
-  .introContainer h2{
+  .introContainer h2 {
     font-size: .9rem;
   }
-  .introContainer .profilePicContainer{
+  .introContainer .profilePicContainer {
     width: 30%;
     margin: 5%;
   }
-   .socialLinksContainer{
+  .socialLinksContainer {
     width: 50%;
     padding: 0;
   }
-  
 }
 
-@media (max-height: 420px) and (min-width: 600px){
+@media (max-height: 420px) and (min-width: 600px) {
   .introContainer, .skillsContainer, .bioContainer {
     width: 33%;
   }
@@ -736,26 +726,23 @@ nav .activeIcon {
   .about h3, .about h3 .colorDivider {
     font-size: 1rem;
   }
-  
   .about .socialLinksContainer .socialIconContainer i {
     font-size: 2rem;
   }
-  
   .introContainer .profilePicContainer {
     width: 40%;
   }
 }
 
-@media (max-height: 420px) and (max-width: 700px){
-  .about .socialLinksContainer{
+@media (max-height: 420px) and (max-width: 700px) {
+  .about .socialLinksContainer {
     width: 100%;
   }
-  .about .socialLinksContainer .socialIconContainer{
+  .about .socialLinksContainer .socialIconContainer {
     width: auto;
     padding-bottom: 0;
   }
-  
-  .about .socialLinksContainer .socialIconContainer p{
+  .about .socialLinksContainer .socialIconContainer p {
     font-size: .6rem;
   }
 }
@@ -848,7 +835,6 @@ nav .activeIcon {
   justify-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
 
 .projects .projectTagsContainer {
@@ -902,9 +888,7 @@ nav .activeIcon {
   border-top: 2px ridge magenta;
   padding: 2%;
   overflow-y: auto;
-
 }
-
 
 .projects .projectsList .projectContainer {
   width: 250px;
@@ -945,138 +929,132 @@ nav .activeIcon {
 }
 
 /*-----Media Queries -----*/
-@media (max-width: 1400px), (max-height: 800px){
-  .projects .projectTagsContainer .projectTags, .projects .overlay .projectTagsList{
+
+@media (max-width: 1400px), (max-height: 800px) {
+  .projects .projectTagsContainer .projectTags, .projects .overlay .projectTagsList {
     font-size: 1rem;
   }
-
-  .projects .projectsList .projectContainer{
+  .projects .projectsList .projectContainer {
     height: 225px;
     width: 225px;
   }
-  .projects .projectsList .projectContainer figcaption{
+  .projects .projectsList .projectContainer figcaption {
     font-size: 1.5rem;
   }
-  .projects .overlay li, .projects .overlay .projectLinksContainer p{
+  .projects .overlay li, .projects .overlay .projectLinksContainer p {
     font-size: 1.3rem;
   }
 }
 
-@media(max-width: 1200px){
-  .projects .projectsList .projectContainer{
+@media(max-width: 1200px) {
+  .projects .projectsList .projectContainer {
     height: 200px;
     width: 200px;
   }
-  .projects .overlay h1{
+  .projects .overlay h1 {
     font-size: 1.5rem;
   }
-  .projects .projectsList .projectContainer figcaption{
+  .projects .projectsList .projectContainer figcaption {
     font-size: 1.3rem;
   }
-  .projects .overlay li, .projects .overlay .projectLinksContainer p{
+  .projects .overlay li, .projects .overlay .projectLinksContainer p {
     font-size: 1rem;
   }
-  .projects .overlay .projectLinksContainer i{
+  .projects .overlay .projectLinksContainer i {
     font-size: 2.5rem;
   }
 }
 
-@media(max-width: 1000px), (max-height: 700px){
-  .projects .projectsList .projectContainer{
+@media(max-width: 1000px), (max-height: 700px) {
+  .projects .projectsList .projectContainer {
     height: 150px;
     width: 150px;
   }
-  .projects .projectsList .projectContainer figcaption{
+  .projects .projectsList .projectContainer figcaption {
     font-size: 1rem;
   }
-
-  .projects .overlay h1{
+  .projects .overlay h1 {
     font-size: 1.3rem;
   }
-  .projects .projectsList .projectContainer figcaption{
+  .projects .projectsList .projectContainer figcaption {
     font-size: 1rem;
   }
-  .projects .overlay li, .projects .overlay .projectLinksContainer p{
+  .projects .overlay li, .projects .overlay .projectLinksContainer p {
     font-size: .8rem;
   }
-  .projects .overlay .projectLinksContainer i{
+  .projects .overlay .projectLinksContainer i {
     font-size: 2rem;
   }
-  .projects .overlay .exitView{
+  .projects .overlay .exitView {
     font-size: 1.5rem;
   }
-  .projects .overlay{
+  .projects .overlay {
     width: 60vw;
   }
-  .projects .projectTagsContainer .projectTags, .projects .overlay .projectTagsList{
+  .projects .projectTagsContainer .projectTags, .projects .overlay .projectTagsList {
     font-size: .8rem;
   }
-
 }
 
-@media(max-width: 800px){
-  .projects .projectsList .projectContainer{
+@media(max-width: 800px) {
+  .projects .projectsList .projectContainer {
     height: 125px;
     width: 125px;
   }
 }
 
-@media(max-width: 600px), (max-height: 600px){
-  .projects .projectTagsContainer{
+@media(max-width: 600px), (max-height: 600px) {
+  .projects .projectTagsContainer {
     height: auto;
     margin: 5% 0;
     width: 100%;
   }
-  .projects .projectTagsContainer .projectTags{
+  .projects .projectTagsContainer .projectTags {
     margin: 2%;
   }
-  .projects .projectsList .projectContainer{
+  .projects .projectsList .projectContainer {
     height: 100px;
     width: 100px;
- 
   }
-  .projects .projectsList{
+  .projects .projectsList {
     width: 100%;
     height: 100%;
     min-height: 100px;
   }
-
-  .projects .overlay{
+  .projects .overlay {
     width: 80vw;
     height: 85%;
   }
-  .projects .overlay h1{
+  .projects .overlay h1 {
     font-size: 1rem;
   }
-  
-
-  
 }
-@media (max-height: 600px){
-  .projects .projectTagsContainer{
+
+@media (max-height: 600px) {
+  .projects .projectTagsContainer {
     margin: 0;
   }
-  .projects .overlay .exitView{
+  .projects .overlay .exitView {
     right: 5%;
   }
 }
 
-@media (max-height: 450px){
-  .projects .overlay{
+@media (max-height: 450px) {
+  .projects .overlay {
     width: 95vw;
     height: 95%;
   }
-  .projects .overlay .projectLinksContainer{
+  .projects .overlay .projectLinksContainer {
     margin-top: 1%;
   }
-  .projects .overlay .projectLinksContainer i{
+  .projects .overlay .projectLinksContainer i {
     font-size: 1.5rem;
   }
-
-  .projects .overlay .projectTagsList{
+  .projects .overlay .projectTagsList {
     font-size: .6rem;
   }
 }
+
 /*-----End Media Queries -----*/
 
 /*-------End Projects Section Stylings-------*/
@@ -1151,14 +1129,13 @@ nav .activeIcon {
   text-shadow: 0px 0px 3px magenta;
 }
 
-.copyright{
- 
+.copyright {
   margin: 1%;
   width: 100%;
   text-align: center;
 }
 
-.copyright p{
+.copyright p {
   background-color: rgba(0, 0, 0, .3);
   border-radius: 10px;
   padding: .5% 1%;
@@ -1170,94 +1147,80 @@ nav .activeIcon {
 }
 
 /*-----Media Queries -----*/
-@media (max-width: 1400px), (max-height: 750px){
-  .contact form .inputContainer label, .contact form .formButton{
+
+@media (max-width: 1400px), (max-height: 750px) {
+  .contact form .inputContainer label, .contact form .formButton {
     font-size: 1.8rem;
     letter-spacing: 1px;
   }
-  .contact form .inputContainer .textInput, .contact form .inputContainer .messageInput{
+  .contact form .inputContainer .textInput, .contact form .inputContainer .messageInput {
     font-size: 1.2rem;
     letter-spacing: 1px;
   }
-  .contact form .inputContainer{
+  .contact form .inputContainer {
     width: 70%;
   }
 }
 
-@media (max-width: 1200px){
-  .contact form .inputContainer label, .contact form .formButton{
+@media (max-width: 1200px) {
+  .contact form .inputContainer label, .contact form .formButton {
     font-size: 1.5rem;
   }
-  .copyright p{
-    
+  .copyright p {
     font-size: .8rem;
   }
 }
 
-@media (max-width: 1000px), (max-height: 650px){
-  .contact form .inputContainer label, .contact form .formButton{
+@media (max-width: 1000px), (max-height: 650px) {
+  .contact form .inputContainer label, .contact form .formButton {
     font-size: 1.2rem;
-    
   }
-  .contact form .inputContainer .textInput{
+  .contact form .inputContainer .textInput {
     padding: .5%;
   }
-
-  .copyright p{
+  .copyright p {
     padding: 1% 2%;
     font-size: .7rem;
   }
- 
 }
 
-@media (max-width: 600px), (max-height: 600px){
-  .contact form .inputContainer label, .contact form .formButton{
+@media (max-width: 600px), (max-height: 600px) {
+  .contact form .inputContainer label, .contact form .formButton {
     font-size: 1rem;
-    
   }
-  .contact form .inputContainer .textInput, .contact form .inputContainer .messageInput{
+  .contact form .inputContainer .textInput, .contact form .inputContainer .messageInput {
     font-size: .9rem;
   }
-  .contact form .inputContainer{
+  .contact form .inputContainer {
     width: 80%;
   }
-
-  
- 
 }
 
-@media (max-height: 550px) and (min-width: 600px){
-  .contact form{
+@media (max-height: 550px) and (min-width: 600px) {
+  .contact form {
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-  
-
-  .contact form .inputContainer{
+  .contact form .inputContainer {
     width: 40%;
     height: auto;
-
   }
-
-  .contact form .inputContainer:last-of-type{
+  .contact form .inputContainer:last-of-type {
     height: 70%;
   }
-
-  .contact form .inputContainer .messageInput{
+  .contact form .inputContainer .messageInput {
     height: 100%;
   }
-
-  .contact form .formButton{
+  .contact form .formButton {
     margin-top: 50px;
   }
-
 }
 
 /*-----End Media Queries -----*/
 
 /*-------End Contact Section Stylings-------*/
 
-footer{
+footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1266,7 +1229,7 @@ footer{
   padding: .5%;
 }
 
-footer p{
+footer p {
   color: lightgray;
   letter-spacing: 1px;
   font-size: .9rem;
