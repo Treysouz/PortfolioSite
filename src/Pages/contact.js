@@ -14,11 +14,15 @@ export default class Contact extends Component {
             <input className="textInput" type="email" name="_replyto"></input>
           </div>
           <div className="inputContainer">
-            <label>Message</label><br></br>
+            <label>Message</label>
+            <br></br>
             <textarea className="messageInput" name="message"></textarea>
           </div>
           <input className="formButton" type="submit" value="Send"></input>
         </form>
+        {/* <div className="copyright">
+          <p>Tremayne Souza &copy; 2020</p>
+        </div> */}
       </section>
     );
   }

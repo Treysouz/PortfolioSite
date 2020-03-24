@@ -62,7 +62,13 @@ export default class App extends Component {
           getNewPage={this.getNewPage}
         ></Router>
         {/* ----------End Main Content --------- */}
+        {/* ----------Footer Content --------- */}
+        <footer>
+      
+        </footer>
+        {/* ----------End Footer Content --------- */}
       </main>
+     
     );
   }
 }
