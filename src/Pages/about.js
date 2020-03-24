@@ -103,6 +103,8 @@ export default class About extends Component {
             <span className="colorDivider"> / </span>Node.js
             <span className="colorDivider"> / </span>React
             <span className="colorDivider"> / </span>React Native
+            <span className="colorDivider"> / </span>Python
+            <span className="colorDivider"> / </span>C++
           </p>
         </div>
         <div className="skillsContainer">
@@ -118,7 +120,7 @@ export default class About extends Component {
             <span className="colorDivider"> / </span>MailChimp
             <span className="colorDivider"> / </span>Google Firebase
             <span className="colorDivider"> / </span>GIMP
-            <span className="colorDivider"> / </span>SalesforceIQ
+            <span className="colorDivider"> / </span>Google Web Designer
           </p>
         </div>
         <div className="socialLinksContainer desktop">
