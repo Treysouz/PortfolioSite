@@ -100,17 +100,6 @@ export default class Projects extends Component {
             {this.populateWebsiteLink(projectData.website)}
             {this.populateGithub(projectData.github)}
           </div>
-
-          {/* <div className="projectLinksContainer">
-            <a className="projectLink" href="test">
-              <i className="fab fa-github-alt"></i>
-              <p>GitHub</p>
-            </a>
-            <a className="projectLink" href="#">
-              <i className="far fa-window-maximize"></i>
-              <p>WebSite</p>
-            </a>
-          </div> */}
         </div>
       );
     }
@@ -120,7 +109,8 @@ export default class Projects extends Component {
       return (
         <a
           className="projectLink"
-          href={contact} onClick={()=>this.props.getNewPage("#contact")}
+          href={contact}
+          onClick={() => this.props.getNewPage("#contact")}
         >
           <i className="fas fa-envelope"></i>
           <p>Contact for Code</p>
@@ -190,6 +180,7 @@ export default class Projects extends Component {
               key={project}
               onClick={() => this.openProjectView(project)}
             >
+              <span className="loadingText">Loading Image....</span>
               <img
                 src={this.projectsData[project].image}
                 alt={this.projectsData[project].alt}

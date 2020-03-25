@@ -7,16 +7,16 @@ export default class Contact extends Component {
         <form action="https://formspree.io/treysouz@gmail.com" method="POST">
           <div className="inputContainer">
             <label>Name</label>
-            <input className="textInput" type="text" name="name"></input>
+            <input className="textInput" type="text" name="name" placeholder="Enter Your Name...."></input>
           </div>
           <div className="inputContainer">
             <label>Email</label>
-            <input className="textInput" type="email" name="_replyto"></input>
+            <input className="textInput" type="email" name="_replyto" placeholder="Enter Your Email...."></input>
           </div>
           <div className="inputContainer">
             <label>Message</label>
             <br></br>
-            <textarea className="messageInput" name="message"></textarea>
+            <textarea className="messageInput" name="message" placeholder="Enter Your Message...."></textarea>
           </div>
           <input className="formButton" type="submit" value="Send"></input>
         </form>

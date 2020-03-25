@@ -109,7 +109,9 @@
 /*---------End Animations-----------*/
 
 /*-------Background Video Stylings-------*/
-
+.backgroundVideo {
+  background-image: url("Assets/Images/pinkandblue_Moment.jpg")
+}
 .backgroundVideo .backgroundFilter {
   background-image: radial-gradient(circle, rgba(50, 50, 50), black);
   width: 100vw;
@@ -760,6 +762,17 @@ nav .activeIcon {
   align-items: center;
 }
 
+.projects .loadingText{
+  position: absolute;
+  z-index: -1;
+  bottom: 50%;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  font-weight: 900;
+  text-shadow: 1px 1px black;
+}
+
 .projects .overlay {
   background-color: rgba(0, 0, 0, .9);
   width: 50vw;
@@ -838,7 +851,6 @@ nav .activeIcon {
 }
 
 .projects .projectTagsContainer {
-  /* border: 2px solid white; */
   width: 90%;
   height: 15%;
   display: flex;
@@ -895,7 +907,6 @@ nav .activeIcon {
   height: 250px;
   opacity: .5;
   position: relative;
-  text-align: center;
   transition: opacity, box-shadow .5s;
   border-radius: 50%;
   border: 2px ridge darkmagenta;
@@ -912,6 +923,8 @@ nav .activeIcon {
   width: auto;
   height: 100%;
   border-radius: 50%;
+  position: relative;
+  z-index: 1;
 }
 
 .projects .projectsList .projectContainer figcaption {
@@ -944,6 +957,9 @@ nav .activeIcon {
   .projects .overlay li, .projects .overlay .projectLinksContainer p {
     font-size: 1.3rem;
   }
+  .projects .loadingText{
+    font-size: .9rem;
+  }
 }
 
 @media(max-width: 1200px) {
@@ -962,6 +978,9 @@ nav .activeIcon {
   }
   .projects .overlay .projectLinksContainer i {
     font-size: 2.5rem;
+  }
+  .projects .loadingText{
+    font-size: .8rem;
   }
 }
 
@@ -993,6 +1012,9 @@ nav .activeIcon {
   }
   .projects .projectTagsContainer .projectTags, .projects .overlay .projectTagsList {
     font-size: .8rem;
+  }
+  .projects .loadingText{
+    font-size: .7rem;
   }
 }
 
@@ -1099,6 +1121,7 @@ nav .activeIcon {
   border-radius: 10px 10px 0 0;
   padding: 2%;
   margin-top: 2vh;
+  text-shadow: none;
 }
 
 .contact form .inputContainer .messageInput {

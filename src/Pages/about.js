@@ -21,9 +21,8 @@ export default class About extends Component {
           From&nbsp;
           <span className="textHighlightContainer">
             <span className="textHighlightOne">&nbsp;Mathematician&nbsp;</span>
-          </span>&nbsp;
-          to
-          &nbsp;
+          </span>
+          &nbsp; to &nbsp;
           <span className="textHighlightContainer">
             <span className="textHighlightTwo">&nbsp;Web Developer,&nbsp;</span>
           </span>
@@ -77,8 +76,8 @@ export default class About extends Component {
         </div>
         <div className="bioContainer">
           <p>
-            I’m a Syracuse University graduate with a background in applied
-            mathematics and computer science who has been coding professionally
+            I’m a Syracuse University graduate with a background in Applied
+            Mathematics and Computer Science who has been coding professionally
             for 2 years and leisurely for 10. Currently, I’m a student in the
             CUNY TechWorks software development program building on my
             self-taught foundations. I am motivated by my love for solving
@@ -133,10 +132,15 @@ export default class About extends Component {
             <i className="fab fa-github-alt"></i>
             <p>GitHub</p>
           </a>
-          <div className="socialIconContainer">
+          <a
+            className="socialIconContainer"
+            href="https://www.linkedin.com/in/tremayne-souza-98862b1a5/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-linkedin"></i>
             <p>Linkedin</p>
-          </div>
+          </a>
           <a
             className="socialIconContainer"
             href="https://www.codewars.com/users/Treysouz"

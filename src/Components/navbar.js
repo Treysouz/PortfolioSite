@@ -16,29 +16,13 @@ function slideHeaderIn(header) {
 }
 
 export default class NavBar extends Component {
- 
   componentDidMount() {
-
     this.updateHeader(this.props.currentPage);
-    
-    // $("nav").hover(function(){
-    //   $(".navText").stop(true, true);
-    //   slideHeaderOut($(".navLinks").children(".navText"));
-    // })
 
     $(".navLinks").hover(function() {
       $(".navText").stop(true, true);
       slideHeaderOut($(this).children(".navText"));
     });
-
-    // $("nav").mouseleave(function(){
-    //   $(".navText").stop(true, true);
-    //   $(".navLinks").each(function(){
-    //     if (!$(this).hasClass("active")){
-    //       slideHeaderIn($(this).children(".navText"));
-    //     }
-    //   })
-    // })
 
     $(".navLinks").mouseleave(function() {
       $(".navText").stop(true, true);
@@ -46,8 +30,6 @@ export default class NavBar extends Component {
         slideHeaderIn($(this).children(".navText"));
       }
     });
-
-
 
     $(window).keydown(function(e) {
       var keycode = e.keyCode ? e.keyCode : e.which;
@@ -71,15 +53,34 @@ export default class NavBar extends Component {
       }
       $(".navLinks")[index].click();
     });
+
+    $(window).on("wheel", function(event) {
+      console.log("yeo");
+      var direction = event.originalEvent.deltaY;
+      console.log(direction);
+      var index = $(".active").index();
+      if (direction > 0) {
+        if (index < 3) {
+          index += 1;
+        }
+      } else {
+        if (index > 0) {
+          index -= 1;
+        }
+      }
+      $(".navLinks")[index].click();
+    });
+
+    window.onhashchange = function() {
+      if (!window.innerDocClick) {
+        window.location.reload();
+      }
+    };
   }
 
   componentDidUpdate() {
     this.updateHeader(this.props.currentPage);
   }
-
- 
-
- 
 
   updateHeader = page => {
     $(".navText").stop(true);
