@@ -25,10 +25,6 @@ export default class Projects extends Component {
     });
   }
 
-  componentWillUpdate() {}
-
-  componentWillUnmount() {}
-
   sortProjects = currentTag => {
     $(".projectTags").removeClass("active");
     $(".projectTags").each(function() {

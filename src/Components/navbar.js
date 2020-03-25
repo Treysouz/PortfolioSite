@@ -70,11 +70,14 @@ export default class NavBar extends Component {
       }
       $(".navLinks")[index].click();
     });
-
+    var current = this;
     window.onhashchange = function() {
-      if (!window.innerDocClick) {
-        window.location.reload();
-      }
+      var newPage = window.location.href.substr(
+        window.location.href.indexOf("#")
+      );
+      current.updateHeader(newPage);
+      var index = $(".active").index();
+      $(".navLinks")[index].click();
     };
   }
 
