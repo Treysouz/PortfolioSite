@@ -109,9 +109,7 @@
 /*---------End Animations-----------*/
 
 /*-------Background Video Stylings-------*/
-.backgroundVideo {
-  background-image: url("Assets/Images/pinkandblue_Moment.jpg")
-}
+
 .backgroundVideo .backgroundFilter {
   background-image: radial-gradient(circle, rgba(50, 50, 50), black);
   width: 100vw;
@@ -119,6 +117,7 @@
   z-index: -1;
   position: fixed;
 }
+
 
 .backgroundVideo video {
   position: fixed;
