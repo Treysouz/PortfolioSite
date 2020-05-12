@@ -108,27 +108,17 @@
 
 /*---------End Animations-----------*/
 
-/*-------Background Video Stylings-------*/
+/*-------Background  Stylings-------*/
 
-.backgroundVideo .backgroundFilter {
-  background-image: radial-gradient(circle, rgba(50, 50, 50), black);
-  width: 100vw;
+.background{
   height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(#3e3337, #222021);
+  position: fixed;
   z-index: -1;
-  position: fixed;
 }
 
 
-.backgroundVideo video {
-  position: fixed;
-  z-index: 0;
-  bottom: 0;
-  opacity: .5;
-  filter: contrast(50%) brightness(80%);
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
 
 /*-------End Background Video Stylings-------*/
 
@@ -177,7 +167,7 @@ nav .navText {
   text-align: left;
   overflow-x: hidden;
   white-space: nowrap;
-  background-image: url("Assets/Images/asfalt-light.png"), linear-gradient(90deg, rgba(255, 0, 255, .5), transparent);
+  background-image: url("Assets/Images/asfalt-light.png"), linear-gradient(90deg, rgba(255, 0, 255, 0.5), transparent);
   border-radius: 5px;
   padding: 0;
   display: inline-block;
@@ -193,7 +183,7 @@ nav .mobileViewText {
 }
 
 nav .active .mobileViewText {
-  text-shadow: 0px 0px 5px magenta;
+  text-shadow: 0px 0px 5px rgb(255, 0, 255);
 }
 
 nav .activeIcon {
@@ -330,7 +320,7 @@ nav .activeIcon {
   white-space: nowrap;
   opacity: 0;
   background-image: url("Assets/Images/asfalt-light.png");
-  background-color: rgba(255, 0, 120, .5);
+  background-color: rgba(255, 0, 120, 0.5);
 }
 
 .welcome .welcomeMessage .signOff {

@@ -55,9 +55,7 @@ export default class NavBar extends Component {
     });
 
     $(window).on("wheel", function(event) {
-      console.log("yeo");
       var direction = event.originalEvent.deltaY;
-      console.log(direction);
       var index = $(".active").index();
       if (direction > 0) {
         if (index < 3) {

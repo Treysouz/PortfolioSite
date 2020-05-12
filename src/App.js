@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import BackgroundVideo from "./Assets/Videos/pinkandblue.mp4";
 import "./App.css";
-import placeholderBackground from "./Assets/Images/pinkandblue_Moment.jpg";
 import NavBar from "./Components/navbar";
 import Router from "./router";
+import Background from "./Components/background";
 import $ from "jquery";
 
 export default class App extends Component {
@@ -31,12 +30,6 @@ export default class App extends Component {
   componentDidMount() {
     window.addEventListener("resize", this.isMobile);
     this.isMobile();
-
-    window.onhashchange = function() {
-      if (!window.innerDocClick) {
-
-      }
-    };
   }
 
   componentWillUnmount() {
@@ -54,12 +47,9 @@ export default class App extends Component {
         ></NavBar>
         {/* ----------End Navigation Bar---------- */}
         {/* ----------Background Video---------- */}
-        <div className="backgroundVideo">
-          <div className="backgroundFilter"></div>
-          <video autoPlay muted loop poster={placeholderBackground}>
-            <source src={BackgroundVideo} type="video/mp4"></source>
-          </video>
-        </div>
+
+         <Background></Background>
+    
         {/* ----------End Background Video---------- */}
         {/* ----------Main Content --------- */}
         <Router
