@@ -12,18 +12,20 @@ export default class App extends Component {
       currentPage: window.location.href.substr(
         window.location.href.indexOf("#")
       ),
-      mobileView: false
+      mobileView: false,
+      projectView: false,
     };
   }
-  getNewPage = page => {
+  getNewPage = (page) => {
     this.setState({
-      currentPage: page
+      currentPage: page,
     });
   };
+
   isMobile = () => {
     this.setState({
       mobileView:
-        $(window).innerWidth() <= 600 || $(window).innerHeight() <= 600
+        $(window).innerWidth() <= 600 || $(window).innerHeight() <= 600,
     });
   };
 
@@ -48,8 +50,8 @@ export default class App extends Component {
         {/* ----------End Navigation Bar---------- */}
         {/* ----------Background Video---------- */}
 
-         <Background></Background>
-    
+        <Background></Background>
+
         {/* ----------End Background Video---------- */}
         {/* ----------Main Content --------- */}
         <Router
@@ -57,6 +59,7 @@ export default class App extends Component {
           isMobile={this.isMobile}
           mobileView={this.state.mobileView}
           getNewPage={this.getNewPage}
+          setProjectView={this.setProjectView}
         ></Router>
         {/* ----------End Main Content --------- */}
         {/* ----------Footer Content --------- */}

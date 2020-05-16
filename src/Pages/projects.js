@@ -12,22 +12,23 @@ export default class Projects extends Component {
     this.state = {
       currentTag: "All",
       projectView: false,
-      currentProject: null
+      currentProject: null,
+      gallery: false,
     };
     this.projectsData = null;
     this.projects = [];
     this.allTags = [];
   }
   componentDidMount() {
-    DATABASE.on("value", snapshot => {
+    DATABASE.on("value", (snapshot) => {
       this.projectsData = snapshot.val();
       this.sortProjects(this.state.currentTag);
     });
   }
 
-  sortProjects = currentTag => {
+  sortProjects = (currentTag) => {
     $(".projectTags").removeClass("active");
-    $(".projectTags").each(function() {
+    $(".projectTags").each(function () {
       if ($(this).text() === currentTag && !$(this).hasClass("active")) {
         $(this).addClass("active");
       }
@@ -36,7 +37,7 @@ export default class Projects extends Component {
     var newProjectList = [];
     for (var project in projectsData) {
       var tags = projectsData[project].tags;
-      tags.forEach(tag => {
+      tags.forEach((tag) => {
         if (!this.allTags.includes(tag)) {
           this.allTags = this.allTags.concat(tag);
         }
@@ -51,29 +52,36 @@ export default class Projects extends Component {
       }
     }
     this.setState({
-      currentTag: currentTag
+      currentTag: currentTag,
     });
   };
 
-  openProjectView = project => {
+  openProjectView = (project) => {
     this.setState({
       projectView: true,
-      currentProject: project
+      currentProject: project,
     });
+
   };
 
   exitProjectView = () => {
     if (this.state.projectView) {
       this.setState({
-        projectView: false
+        projectView: false,
+        gallery: false,
       });
+
     }
+    
   };
+
   projectOverlay = () => {
     var projectTitle = this.state.currentProject;
-
-    if (this.state.projectView) {
+    if (this.projectsData) {
       var projectData = this.projectsData[projectTitle];
+    }
+
+    if (this.state.projectView && !this.state.gallery) {
       return (
         <div className="overlay">
           <i
@@ -82,12 +90,12 @@ export default class Projects extends Component {
           ></i>
           <h1>{projectTitle}</h1>
           <ul>
-            {projectData.description.map(item => (
+            {projectData.description.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
           <div className="projectTagsList">
-            {projectData.tags.map(tag => (
+            {projectData.tags.map((tag) => (
               <span key={tag}>#{tag}&nbsp;</span>
             ))}
           </div>
@@ -95,12 +103,41 @@ export default class Projects extends Component {
             {this.populateContactLink(projectData.contact)}
             {this.populateWebsiteLink(projectData.website)}
             {this.populateGithub(projectData.github)}
+            <div
+              onClick={() =>
+                this.state.gallery
+                  ? this.setState({ gallery: false })
+                  : this.setState({ gallery: true })
+              }
+            >
+              <i className="far fa-images"></i>
+              <p>Images</p>
+            </div>
           </div>
         </div>
       );
+    } else if (this.state.projectView && this.state.gallery) {
+      return (
+        <div className="overlay">
+          <i
+            className="fas fa-arrow-left backButton"
+            onClick={() => this.setState({ gallery: false })}
+          ></i>
+          <h1>{projectTitle}</h1>
+          <div className="imageGallery">
+            
+            {projectData.gallery.map((image) => (
+              <a href={image} key={image} target="_blank" rel="noopener noreferrer">
+              <img src={image} alt={this.state.currentProject}></img></a>
+            ))}
+          </div>
+        </div>
+      );
+    }else{
+      return(null);
     }
   };
-  populateContactLink = contact => {
+  populateContactLink = (contact) => {
     if (typeof contact !== "undefined") {
       return (
         <a
@@ -109,12 +146,12 @@ export default class Projects extends Component {
           onClick={() => this.props.getNewPage("#contact")}
         >
           <i className="fas fa-envelope"></i>
-          <p>Contact for Code</p>
+          <p>Contact for <br></br>Code</p>
         </a>
       );
     }
   };
-  populateWebsiteLink = website => {
+  populateWebsiteLink = (website) => {
     if (typeof website !== "undefined") {
       return (
         <a
@@ -129,7 +166,7 @@ export default class Projects extends Component {
       );
     }
   };
-  populateGithub = github => {
+  populateGithub = (github) => {
     if (typeof github !== "undefined") {
       return (
         <a
@@ -145,6 +182,7 @@ export default class Projects extends Component {
     }
   };
 
+
   render() {
     return (
       <section className="projects">
@@ -159,7 +197,7 @@ export default class Projects extends Component {
           >
             All
           </span>
-          {this.allTags.map(tag => (
+          {this.allTags.map((tag) => (
             <span
               className="projectTags"
               onClick={() => this.sortProjects(tag)}
@@ -170,7 +208,7 @@ export default class Projects extends Component {
           ))}
         </div>
         <div className="projectsList" onClick={() => this.exitProjectView()}>
-          {this.projects.map(project => (
+          {this.projects.map((project) => (
             <figure
               className="projectContainer"
               key={project}

@@ -4,34 +4,35 @@ import $ from "jquery";
 function slideHeaderOut(header) {
   header.animate({
     width: "100%",
-    padding: "5px"
+    padding: "5px",
   });
 }
 
 function slideHeaderIn(header) {
   header.animate({
     width: "0px",
-    padding: "0px"
+    padding: "0px",
   });
 }
 
 export default class NavBar extends Component {
+
   componentDidMount() {
     this.updateHeader(this.props.currentPage);
 
-    $(".navLinks").hover(function() {
+    $(".navLinks").hover(function () {
       $(".navText").stop(true, true);
       slideHeaderOut($(this).children(".navText"));
     });
 
-    $(".navLinks").mouseleave(function() {
+    $(".navLinks").mouseleave(function () {
       $(".navText").stop(true, true);
       if (!$(this).hasClass("active")) {
         slideHeaderIn($(this).children(".navText"));
       }
     });
 
-    $(window).keydown(function(e) {
+    $(window).keydown(function (e) {
       var keycode = e.keyCode ? e.keyCode : e.which;
       var index = $(".active").index();
       switch (keycode) {
@@ -54,22 +55,24 @@ export default class NavBar extends Component {
       $(".navLinks")[index].click();
     });
 
-    $(window).on("wheel", function(event) {
-      var direction = event.originalEvent.deltaY;
-      var index = $(".active").index();
-      if (direction > 0) {
-        if (index < 3) {
-          index += 1;
-        }
-      } else {
-        if (index > 0) {
-          index -= 1;
-        }
-      }
-      $(".navLinks")[index].click();
-    });
+    // $(window).on("wheel", function (event) {
+    //   var direction = event.originalEvent.deltaY;
+    //   var index = $(".active").index();
+
+    //   if (direction > 0) {
+    //     if (index < 3) {
+    //       index += 1;
+    //     }
+    //   } else {
+    //     if (index > 0) {
+    //       index -= 1;
+    //     }
+    //   }
+    //   $(".navLinks")[index].click();
+    // });
+
     var current = this;
-    window.onhashchange = function() {
+    window.onhashchange = function () {
       var newPage = window.location.href.substr(
         window.location.href.indexOf("#")
       );
@@ -83,36 +86,20 @@ export default class NavBar extends Component {
     this.updateHeader(this.props.currentPage);
   }
 
-  updateHeader = page => {
+  updateHeader = (page) => {
     $(".navText").stop(true);
-    $(".navLinks").each(function() {
+    $(".navLinks").each(function () {
       if ($(this).attr("href") === page) {
-        slideHeaderOut(
-          $(this)
-            .addClass("active")
-            .children(".navText")
-        );
-        $(this)
-          .children(".navIcons")
-          .addClass("activeIcon");
+        slideHeaderOut($(this).addClass("active").children(".navText"));
+        $(this).children(".navIcons").addClass("activeIcon");
       } else if (page === "/" || page === "") {
         slideHeaderOut(
-          $($(".navLinks")[0])
-            .addClass("active")
-            .children(".navText")
+          $($(".navLinks")[0]).addClass("active").children(".navText")
         );
-        $($(".navLinks")[0])
-          .children(".navIcons")
-          .addClass("activeIcon");
+        $($(".navLinks")[0]).children(".navIcons").addClass("activeIcon");
       } else {
-        slideHeaderIn(
-          $(this)
-            .removeClass("active")
-            .children(".navText")
-        );
-        $(this)
-          .children(".navIcons")
-          .removeClass("activeIcon");
+        slideHeaderIn($(this).removeClass("active").children(".navText"));
+        $(this).children(".navIcons").removeClass("activeIcon");
       }
     });
   };

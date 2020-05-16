@@ -83,4 +83,27 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transition: background-color 5000s ease-in-out 0s;
 }
 
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+::-webkit-scrollbar-thumb {
+  background: magenta;
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkmagenta;
+  cursor: pointer;
+}
 /*-------End Global Stylings-------*/

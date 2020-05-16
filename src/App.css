@@ -110,15 +110,13 @@
 
 /*-------Background  Stylings-------*/
 
-.background{
+.background {
   height: 100vh;
   width: 100vw;
   background-image: radial-gradient(#3e3337, #222021);
   position: fixed;
   z-index: -1;
 }
-
-
 
 /*-------End Background Video Stylings-------*/
 
@@ -751,7 +749,7 @@ nav .activeIcon {
   align-items: center;
 }
 
-.projects .loadingText{
+.projects .loadingText {
   position: absolute;
   z-index: -1;
   bottom: 50%;
@@ -784,11 +782,24 @@ nav .activeIcon {
   color: lightgray;
   font-size: 2rem;
   position: absolute;
-  top: 3%;
+  top: 10%;
   right: 10%;
 }
 
 .projects .overlay .exitView:hover {
+  color: lightskyblue;
+  cursor: pointer;
+}
+
+.projects .overlay .backButton {
+  color: lightgray;
+  font-size: 2rem;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.projects .overlay .backButton:hover {
   color: lightskyblue;
   cursor: pointer;
 }
@@ -804,14 +815,40 @@ nav .activeIcon {
   padding-bottom: 2%;
 }
 
+.projects .overlay .imageGallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow-y: auto;
+ 
+
+}
+
+.projects .overlay .imageGallery a{
+  width: 45%;
+  margin: 2%;
+}
+
+.projects .overlay .imageGallery a img{
+  width: 100%;
+  height: auto;
+  
+  cursor: pointer;
+  border: 2px ridge lightskyblue;
+}
+
 .projects .overlay .projectLinksContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+
   text-align: center;
   width: 100%;
 }
+
 
 .projects .overlay .projectLinksContainer p {
   font-size: 1.5rem;
@@ -946,7 +983,7 @@ nav .activeIcon {
   .projects .overlay li, .projects .overlay .projectLinksContainer p {
     font-size: 1.3rem;
   }
-  .projects .loadingText{
+  .projects .loadingText {
     font-size: .9rem;
   }
 }
@@ -968,7 +1005,7 @@ nav .activeIcon {
   .projects .overlay .projectLinksContainer i {
     font-size: 2.5rem;
   }
-  .projects .loadingText{
+  .projects .loadingText {
     font-size: .8rem;
   }
 }
@@ -993,8 +1030,9 @@ nav .activeIcon {
   .projects .overlay .projectLinksContainer i {
     font-size: 2rem;
   }
-  .projects .overlay .exitView {
+  .projects .overlay .exitView, .projects .overlay .backButton {
     font-size: 1.5rem;
+    top: 5%;
   }
   .projects .overlay {
     width: 60vw;
@@ -1002,8 +1040,14 @@ nav .activeIcon {
   .projects .projectTagsContainer .projectTags, .projects .overlay .projectTagsList {
     font-size: .8rem;
   }
-  .projects .loadingText{
+  .projects .loadingText {
     font-size: .7rem;
+  }
+  .projects .overlay .imageGallery{
+    margin-top: 15%;
+  }
+  .projects .overlay .imageGallery a{
+    width: 90%;
   }
 }
 
@@ -1047,6 +1091,11 @@ nav .activeIcon {
   }
   .projects .overlay .exitView {
     right: 5%;
+    top: 5%;
+  }
+  .projects .overlay .backButton {
+    left: 5%;
+    top: 5%;
   }
 }
 
