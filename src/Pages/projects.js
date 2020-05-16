@@ -61,7 +61,6 @@ export default class Projects extends Component {
       projectView: true,
       currentProject: project,
     });
-
   };
 
   exitProjectView = () => {
@@ -70,9 +69,7 @@ export default class Projects extends Component {
         projectView: false,
         gallery: false,
       });
-
     }
-    
   };
 
   projectOverlay = () => {
@@ -125,16 +122,21 @@ export default class Projects extends Component {
           ></i>
           <h1>{projectTitle}</h1>
           <div className="imageGallery">
-            
             {projectData.gallery.map((image) => (
-              <a href={image} key={image} target="_blank" rel="noopener noreferrer">
-              <img src={image} alt={this.state.currentProject}></img></a>
+              <a
+                href={image}
+                key={image}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={image} alt={this.state.currentProject}></img>
+              </a>
             ))}
           </div>
         </div>
       );
-    }else{
-      return(null);
+    } else {
+      return null;
     }
   };
   populateContactLink = (contact) => {
@@ -146,7 +148,9 @@ export default class Projects extends Component {
           onClick={() => this.props.getNewPage("#contact")}
         >
           <i className="fas fa-envelope"></i>
-          <p>Contact for <br></br>Code</p>
+          <p>
+            Contact for <br></br>Code
+          </p>
         </a>
       );
     }
@@ -182,7 +186,6 @@ export default class Projects extends Component {
     }
   };
 
-
   render() {
     return (
       <section className="projects">
@@ -214,11 +217,15 @@ export default class Projects extends Component {
               key={project}
               onClick={() => this.openProjectView(project)}
             >
-              <span className="loadingText">Loading Image....</span>
-              <img
-                src={this.projectsData[project].image}
-                alt={this.projectsData[project].alt}
-              ></img>
+              {this.projectsData[project].image ? (
+                <img
+                  src={this.projectsData[project].image}
+                  alt={this.projectsData[project].alt}
+                ></img>
+              ) : (
+                <span className="loadingText">Loading Image....</span>
+              )}
+
               <figcaption>{project}</figcaption>
             </figure>
           ))}

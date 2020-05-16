@@ -936,7 +936,8 @@ nav .activeIcon {
   transition: opacity, box-shadow .5s;
   border-radius: 50%;
   border: 2px ridge darkmagenta;
-  background-color: lightskyblue;
+  background-color: black;
+  text-align: center;
 }
 
 .projects .projectsList .projectContainer:hover, .projects .projectsList .projectContainer .active {
@@ -948,6 +949,7 @@ nav .activeIcon {
 .projects .projectsList .projectContainer img {
   width: auto;
   height: 100%;
+  
   border-radius: 50%;
   position: relative;
   z-index: 1;
