@@ -20,12 +20,13 @@ export default class Projects extends Component {
     this.allTags = [];
   }
   componentDidMount() {
+    //If component mounts, get a snapshot of the firebase database
     DATABASE.on("value", (snapshot) => {
       this.projectsData = snapshot.val();
       this.sortProjects(this.state.currentTag);
     });
   }
-
+  //Populate tags and project images in 'projects' section.  Set this.state.currentTag to user selected tag.
   sortProjects = (currentTag) => {
     $(".projectTags").removeClass("active");
     $(".projectTags").each(function () {
@@ -55,14 +56,14 @@ export default class Projects extends Component {
       currentTag: currentTag,
     });
   };
-
+  //Open module to see project details
   openProjectView = (project) => {
     this.setState({
       projectView: true,
       currentProject: project,
     });
   };
-
+  //Exit module with project details.
   exitProjectView = () => {
     if (this.state.projectView) {
       this.setState({
@@ -71,7 +72,7 @@ export default class Projects extends Component {
       });
     }
   };
-
+  //Populates project details module with information depending on project clicked and whether or not user is viewing the image gallery.
   projectOverlay = () => {
     var projectTitle = this.state.currentProject;
     if (this.projectsData) {
@@ -139,6 +140,7 @@ export default class Projects extends Component {
       return null;
     }
   };
+  //Detects if project needs a 'Contact for Code' button and returns it.
   populateContactLink = (contact) => {
     if (typeof contact !== "undefined") {
       return (
@@ -155,6 +157,7 @@ export default class Projects extends Component {
       );
     }
   };
+  //Detects if project needs a 'Website' button and returns it.
   populateWebsiteLink = (website) => {
     if (typeof website !== "undefined") {
       return (
@@ -170,6 +173,7 @@ export default class Projects extends Component {
       );
     }
   };
+  //Detects if project needs a 'Github' button and returns it.
   populateGithub = (github) => {
     if (typeof github !== "undefined") {
       return (

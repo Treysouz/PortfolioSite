@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProfilePic from "../Assets/Images/ProfilePic.jpg";
 export default class About extends Component {
+  //Returns mobile version of 'About' section header if this.props.mobileView is true.
   mobileHeader = () => {
     if (!this.props.mobileView) {
       return (

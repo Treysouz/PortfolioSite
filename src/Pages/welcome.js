@@ -8,6 +8,7 @@ export default class Welcome extends Component {
     };
   }
   componentDidMount() {
+    //If component mounts, check the time and change intro message on welcome section accordingly.
     var date = new Date();
     if (date.getHours() > 5 && date.getHours() < 12) {
       this.setState({

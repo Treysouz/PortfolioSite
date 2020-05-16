@@ -4,6 +4,7 @@ import About from "./Pages/about";
 import Projects from "./Pages/projects";
 import Contact from "./Pages/contact";
 
+//Changes section depending on this.props.currentPage
 export default class Router extends Component {
   render() {
     switch (this.props.currentPage) {

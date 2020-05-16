@@ -948,6 +948,7 @@ nav .activeIcon {
 
 .projects .projectsList .projectContainer img {
   width: auto;
+  max-width: 100%;
   height: 100%;
   
   border-radius: 50%;
