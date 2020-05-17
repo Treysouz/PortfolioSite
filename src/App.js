@@ -16,12 +16,14 @@ export default class App extends Component {
       projectView: false,
     };
   }
+
+  //gets current page and sets it to this.state.currentPage
   getNewPage = (page) => {
     this.setState({
       currentPage: page,
     });
   };
-
+  //Sets this.state.mobileView to true if screen size is small
   isMobile = () => {
     this.setState({
       mobileView:
@@ -30,11 +32,13 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    //If component mounts, detect if screen size changes and check if screen size is small
     window.addEventListener("resize", this.isMobile);
     this.isMobile();
   }
 
   componentWillUnmount() {
+    //If component unmounts, stop detecting if screen size is small
     window.removeEventListener("resize", this.isMobile);
   }
 
