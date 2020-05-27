@@ -77,13 +77,15 @@ export default class About extends Component {
         </div>
         <div className="bioContainer">
           <p>
-            I’m a Syracuse University graduate with a background in Applied
+            I am a Syracuse University graduate with a background in Applied
             Mathematics and Computer Science who has been coding professionally
-            for 2 years and leisurely for 10. Currently, I’m a student in the
-            CUNY TechWorks software development program building on my
-            self-taught foundations. I am motivated by my love for solving
-            algorithms and collaborating to create unique and responsive
-            designs. I look forward to working with you!
+            for 2 years and leisurely for 10. After finishing the CUNY Techworks
+            software development program, I am continuing to build upon my
+            self-taught foundations through various freelance opportunities
+            while finding learning experiences in projects both big and small. I
+            am motivated by my love for solving algorithms and collaborating to
+            create unique and responsive designs. I look forward to working with
+            you!
           </p>
         </div>
 
