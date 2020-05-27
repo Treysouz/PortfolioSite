@@ -474,7 +474,7 @@ nav .activeIcon {
 .bioContainer p {
   font-size: 1.5rem;
   letter-spacing: 1px;
-  line-height: 2.5rem;
+  line-height: 2rem;
   text-shadow: 2px 2px black;
 }
 
@@ -572,7 +572,7 @@ nav .activeIcon {
     font-size: 1rem;
   }
   .bioContainer p {
-    line-height: 2rem;
+    line-height: 1.2rem;
   }
   .about h3, .about h3 .colorDivider {
     font-size: 1.3rem;
