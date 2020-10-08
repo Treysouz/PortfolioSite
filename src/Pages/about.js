@@ -106,6 +106,8 @@ export default class About extends Component {
             <span className="colorDivider"> / </span>React Native
             <span className="colorDivider"> / </span>Python
             <span className="colorDivider"> / </span>C++
+            <span className="colorDivider"> / </span>Sass
+            <span className="colorDivider"> / </span>REST APIs
           </p>
         </div>
         <div className="skillsContainer">

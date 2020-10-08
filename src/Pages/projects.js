@@ -24,6 +24,7 @@ export default class Projects extends Component {
     DATABASE.on("value", (snapshot) => {
       this.projectsData = snapshot.val();
       this.sortProjects(this.state.currentTag);
+
     });
   }
   //Populate tags and project images in 'projects' section.  Set this.state.currentTag to user selected tag.
